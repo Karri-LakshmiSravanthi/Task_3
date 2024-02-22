@@ -1,0 +1,268 @@
+.container {
+    height: 100% !important;
+}
+
+.left-panel {
+    width: 17.2% !important;
+    height: 150% !important;
+}
+
+.right-panel {
+    height: 150% !important;
+}
+
+.employees {
+    background-color: rgb(255, 209, 209);
+    border-radius: 4px;
+    margin: 0rem 1rem 0rem -1rem;
+    padding-left: 1rem;
+    color: red;
+    align-items: center;
+}
+
+.employees a {
+    text-decoration: none;
+    color: black;
+}
+
+.emp-border {
+    border-right: 4px solid red;
+    border-radius: 2px;
+}
+
+.roles i {
+    color: rgb(117, 117, 117);
+    padding-right: 1rem;
+}
+
+.roles-left {
+    padding: 0.5rem 0rem;
+}
+
+.roles-left a {
+    text-decoration: none;
+    color: black;
+    padding-top: 0.6rem;
+}
+
+.add-employee-wrapper {
+    width: 100%;
+    /* height: 100% !important; */
+    display: flex;
+    flex-direction: column;
+}
+
+.add-employee-wrapper .profile-pic {
+    display: flex;
+}
+
+#ppImg {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+    border: 1px solid rgb(196, 196, 196);
+}
+
+#uploadButton {
+    margin: 1.5rem;
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-wrapper {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.form-wrapper label {
+    display: block;
+}
+
+.form-wrapper input {
+    height: 1.5rem;
+    outline-color: skyblue;
+}
+
+.form-wrapper .names,
+.form-wrapper .contact-info,
+.form-wrapper .joining-info,
+.job-info,
+.team-info {
+    display: flex;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.form-wrapper .names div {
+    padding-right: 2rem;
+}
+
+.form-wrapper .contact-info div {
+    padding-right: 2rem;
+}
+
+.form-wrapper .joining-info div {
+    padding-right: 2rem;
+}
+
+.form-wrapper .job-info div {
+    padding-right: 2rem;
+}
+
+.form-wrapper .team-info .sec {
+    padding-right: 2rem;
+}
+
+.form-wrapper .names input[type="date"] {
+    width: 12rem;
+}
+
+.form-wrapper select {
+    height: 1.8rem;
+}
+
+.form-wrapper input[type="date"],
+select {
+    width: 20rem;
+}
+
+.form-wrapper select {
+    width: 20.5rem;
+}
+
+.emp-info {
+    margin-top: 2.5rem;
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top:10.5rem;
+}
+
+.btn button {
+    padding: 0.7rem 2rem;
+    margin: 2rem 0.5rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn .cancel {
+    background-color: rgb(255, 209, 209);
+}
+
+.btn .add-btn {
+    border-radius: 4px;
+    border: none;
+    background-color: rgb(251, 57, 57);
+}
+
+.cancel a {
+    text-decoration: none;
+    color: red;
+}
+
+.add-btn {
+    text-decoration: none;
+    color: white;
+}
+
+.emp-no p,
+.names p,
+.contact-info p,
+.joining-info p {
+    color: red;
+}
+
+.alertBox {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(56, 251, 114);
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.alertContent {
+    text-align: center;
+}
+
+.successMessage {
+    color: black;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#ellipsisCell {
+    border: none;
+    outline: none;
+}
+
+.dropdown {
+    position: relative;
+}
+
+#searchInput {
+    width: 20rem;
+    height: 1.2rem;
+    padding: 3px;
+    border: 1px solid rgb(86, 86, 86);
+    border-radius: 3px;
+    outline-color: skyblue;
+}
+
+#searchInput:focus+#dropdownContent {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    z-index: 1;
+    width: 20.4rem;
+    max-height:12.5rem;
+    overflow-y: scroll;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.option {
+    padding: 0.3rem 0.3rem 0rem 0.3rem;
+    cursor: pointer;
+    display: flex;
+    border: 1px solid black;
+    margin-top: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.option:hover {
+    background-color: #f0f0f0;
+}
+
+.opt-left {
+    display: flex;
+    flex: 1;
+}
+
+input[type="checkbox"]:checked {
+    accent-color: red;
+}
+
+.opt-left i {
+    font-size: 1.5rem;
+    border-radius: 50%;
+    margin-right: 5px;
+}

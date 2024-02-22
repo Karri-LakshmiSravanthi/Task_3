@@ -1,0 +1,489 @@
+.employees {
+    background-color: rgb(255, 209, 209);
+    border-radius: 4px;
+    margin: 0rem 1rem 0rem -1rem;
+    padding-left: 1rem;
+    color: red;
+    align-items: center;
+}
+
+.emp-border {
+    border-right: 4px solid red;
+    border-radius: 2px;
+}
+
+.roles i {
+    color: rgb(117, 117, 117);
+    padding-right: 1rem;
+}
+
+.roles-left {
+    padding: 0.5rem 0rem;
+}
+
+.roles-left a {
+    text-decoration: none;
+    color: black;
+    padding-top: 0.6rem;
+}
+
+.operations {
+    display: flex;
+}
+
+.operations .op-content {
+    width: 65%;
+}
+
+.operations .op-btn {
+    width: 35%;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: flex-end;
+}
+
+.operations .op-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.export-btn {
+    background-color: white;
+    border: 1px solid rgb(117, 117, 117);
+    width: 9.3rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    color: rgb(117, 117, 117);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.add-btn {
+    background-color: rgb(251, 57, 57);
+    box-shadow: 2px 1px 10px rgb(220, 220, 220);
+    border: none;
+    width: 14.5rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter {
+    display: flex;
+    width: 100%;
+}
+
+.filter i {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.3rem;
+    padding: 0.6rem;
+    font-size: 1.5rem;
+}
+
+.filter button {
+    margin: 0.3rem;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 3px;
+}
+
+.filter button:hover,
+#refresh {
+    cursor: pointer;
+}
+
+.filter-dropdowns {
+    width: 100%;
+    display: flex;
+    background-color: rgb(250, 217, 217);
+    border-radius: 4px;
+    border: 1px red solid;
+}
+
+.filter-dropdowns .left-filter {
+    width: 70%;
+    display: flex;
+}
+
+.filter-dropdowns .right-filter {
+    width: 30%;
+    margin-right: 1rem;
+    display: none;
+}
+
+.left-filter p {
+    padding: 0.5rem 0rem 0rem 1rem;
+    color: red;
+}
+
+/*Multi select dropdown CSS*/
+.multiselect-wrapper {
+    display: flex;
+}
+
+.multiselect {
+    position: relative;
+    width: 170px;
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    z-index: 3;
+}
+
+.select-box {
+    border: 1px solid red;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex
+}
+
+.selected {
+    color: black;
+    width: 95%;
+}
+
+.arrow .arrow_i {
+    justify-content: flex-end;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffff;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown-content label {
+    display: block;
+    padding: 5px;
+}
+
+.dropdown-content label:hover {
+    background-color: #b0b0b0;
+    font-weight: bold;
+}
+
+/* multi select dropdown ends here */
+
+.right-filter button {
+    margin: 1rem 0.4rem;
+    padding: 0.3rem 0.7rem;
+}
+
+.right-filter .reset {
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 4px;
+    color: red;
+    cursor: pointer;
+}
+
+.right-filter .apply {
+    background-color: rgb(249, 47, 47);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.wrapper-class {
+    margin-top: 0.8rem;
+    border-radius: 20px 0px;
+    box-shadow: 5px 0 10px -5px #888888, -5px 0 10px -5px #888888;
+}
+
+.delete {
+    width: 100%;
+    display: flex;
+    background-color: white;
+    border-radius: 4px;
+    border-bottom: 1px solid rgb(196, 196, 196);
+}
+
+.delete .delete-btn {
+    width: 50%;
+    display: flex;
+}
+
+.delete button {
+    cursor: pointer;
+}
+
+.delete .table-add {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete .delete-btn .down-arrow-img {
+    margin: 1.2rem 0.3rem 0rem 1.5rem;
+    width: 1rem;
+    height: 1.5rem;
+}
+
+.delete .delete-btn button {
+    padding: 0.2rem 0.6rem;
+    margin: 0.8rem 0.3rem;
+    background-color: rgb(249, 47, 47);
+    color: white;
+    border-radius: 4px;
+    border: none;
+    width: 6rem;
+    display: none;
+}
+
+.delete .table-add img {
+    margin: 1rem 1.5rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.table-wrapper {
+    max-height: 310px;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table th {
+    text-align: start;
+    padding: 1rem 1.2rem;
+    background-color: rgb(243, 242, 241);
+}
+
+table td {
+    padding: 1rem 0.3rem 0.5rem 1.2rem;
+}
+
+table thead {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+}
+
+table tbody {
+    position: block;
+}
+
+table tr {
+    border-bottom: 1px solid rgb(148, 148, 148);
+}
+
+table tr:hover {
+    background-color: rgb(250, 217, 217);
+    cursor: pointer;
+}
+
+table .th-content {
+    display: flex;
+}
+
+table .th-icons i {
+    margin: 0.3rem 0rem 0rem 0.15rem
+}
+
+.statusBtn{
+    background-color:white;
+    border-radius: 5px;
+    padding:0.2rem 0.4rem;
+}
+
+.nameCell{
+    display: flex;
+    align-items: center;
+}
+
+.dynamicProfile{
+    width:2rem;
+    height:2rem;
+    border-radius:50%;
+    border:1px solid black;
+}
+
+.userDetails{
+    margin-left:5px;
+}
+
+.userDetails p,span{
+    padding:0;
+    margin:0;
+}
+
+#mySelect{
+    border: none;
+    outline: none;
+    appearance: none;
+}
+
+
+
+/* media query */
+@media(max-width: 768px) {
+    .container {
+        display: flex;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .left-panel {
+        width: 35%;
+        margin-bottom: 1rem;
+        border: 1px solid rgb(243, 243, 243);
+        height: 100%;
+        position: relative;
+    }
+
+    .right-panel {
+        width: 65%;
+        height: 100%;
+    }
+
+    .update {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .logo-area .logo,
+    .handle {
+        padding: 1rem;
+    }
+
+    .filter {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .search-rightpart p {
+        display: none;
+    }
+
+    .export-btn img {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .table-wrapper {
+        width: 100%;
+        margin: 0;
+    }
+
+    table th {
+        text-align: start;
+        padding: 1rem;
+        background-color: rgb(243, 242, 241);
+    }
+
+    table td {
+        padding: 1rem;
+    }
+}
+
+@media(max-width: 425px) {
+
+    .container {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+
+    .left-panel {
+        width: 34% !important;
+    }
+
+    .right-panel {
+        width: 66% !important;
+        padding: 0;
+        margin: 0;
+
+    }
+
+    .search-panel {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    input[type="text"] {
+        outline: 1px solid rgb(108, 108, 108);
+        border-radius: 4px;
+    }
+
+    .search-leftpart,
+    .search-rightpart {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-leftpart {
+        margin-left: 5rem;
+    }
+
+    .search-rightpart {
+        display: flex;
+        margin-left: 10rem;
+    }
+
+    .search-rightpart i {
+        padding: 0.5rem 0rem 0rem 0.2rem;
+    }
+
+    .search-rightpart p {
+        display: none;
+    }
+
+    .operations {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .op-content {
+        width: 100% !important;
+    }
+
+    .op-btn {
+        width: 100% !important;
+        padding-bottom: 1rem;
+    }
+
+    .export-btn img {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .filter-dropdowns {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100% !important;
+        margin-top: 1rem;
+    }
+
+    .left-filter select {
+        display: flex;
+        margin-left: 0.2rem;
+    }
+
+    .left-filter p,
+    .left-filter i {
+        display: none;
+    }
+
+    .table-wrapper {
+        max-height: 50px;
+        overflow-y: scroll;
+        width: 100%;
+    }
+}

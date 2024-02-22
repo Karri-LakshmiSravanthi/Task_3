@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-2 Page-1</title>
+    <link rel="stylesheet" href="employees.css">
+    <link rel="stylesheet" href="common_css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-...your-integrity-hash-here..." crossorigin="anonymous" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <!--Left starts here-->
+        <div class="left-panel" id="leftPanel1">
+            <div class="logo-area">
+                <div class="logo">
+                    <img src="images/TezoLogo.svg" alt="logo">
+                </div>
+            </div>
+            <div class="main-dashboard">
+                <div class="all">
+                    <p>ALL</p>
+                    <div class="dashboard">
+                        <img src="images/Horizontal nav/Dashboard.svg" alt="icon" class="dashboard-img">
+                        <p><b>Dashboard</b></p>
+                    </div>
+                    <div class="emp-border">
+                        <div class="employees">
+                            <img src="images/team_svgrepo.com.svg" alt="icon" class="employee-img">
+                            <p><b>Employees</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="role">
+                    <p>ROLE / USER MANAGEMENT</p>
+                    <div class="roles">
+                        <div class="roles-left">
+                            <img src="images/Horizontal nav/Roles.svg" alt="icon" class="roles-img">
+                            <a href="roles.html"><b>Roles</b></a>
+                        </div>
+                        <div class="roles-right">
+                            <i class="fas fa-greater-than"></i>
+                        </div>
+                    </div>
+                    <div class="access">
+                        <div class="access-left">
+                            <img src="images/Horizontal nav/assign user.svg" alt="icon" class="assign-img">
+                            <p><b>Access rights</b></p>
+                        </div>
+                        <div class="access-right">
+                            <i class="fas fa-greater-than"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="update" id="update">
+                <div class="update-content">
+                    <p class="update-title"><b>Install new updates 2.3.1A</b></p>
+                    <p>Allow to launch the new update for AD application.</p>
+                    <button class="dismiss-btn" onclick="dismiss()">Dismiss</button>
+                    <button class="accept-btn">Accept</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="leftPanel2">
+            <div class="side-navbar">
+                <img src="images/TezoLogoSymbol.png" alt="">
+                <img src="images/Horizontal nav/Dashboard.svg" alt="">
+                <img src="images/team_svgrepo.com.svg" alt="">
+                <a href="roles.html"><img src="images/Horizontal nav/Roles.svg" alt=""></a>
+                <img src="images/Horizontal nav/assign user.svg" alt="">
+            </div>
+        </div>
+        <!--Left ends here-->
+
+        <!--Right starts here-->
+        <div class="right-panel" id="rightPanel1">
+            <div class="handle">
+                <img src="images/handle.png" alt="Image" onclick="SideBar()" class="handle-icon">
+            </div>
+            <!--Search panel Starts here-->
+            <div class="search-panel">
+                <div class="search-leftpart">
+                    <img src="images/bx-search.png" alt="search">
+                    <input type="text" placeholder="Search" class="search">
+                </div>
+                <div class="search-rightpart">
+                    <img src="images/IconButton.png" alt="iconbutton">
+                    <img src="images/Vertical Navbar/Categories.svg" alt="dashboard">
+                    <img src="images/icon2.png" alt="icon2">
+                    <img src="images/icon3.png" alt="icon3">
+                    <div class="profile-content">
+                        <i class="fas fa-user-circle"></i>
+                        <p>John Abraham<br />Admin</p>
+                    </div>
+                    <i class="fas fa-caret-down" class="arrow"></i>
+                </div>
+            </div>
+            <!--Search panel ends here-->
+
+            <!--Operations starts here-->
+            <div class="operations">
+                <div class="op-content">
+                    <p><b>Employees</b></p>
+                    <p>Find all of your company's employee account and their associated roles.</p>
+                </div>
+                <div class="op-btn">
+                    <button class="export-btn" onclick="exportToExcel()">
+                        <img src="images/Masked Icon.png" alt="">EXPORT
+                    </button>
+                    <button class="add-btn"><a href="add-employee.html">+ ADD EMPLOYEE</a></button>
+                </div>
+            </div>
+            <!--Operations ends here-->
+
+            <!--Filter section starts here-->
+            <div class="filter">
+                <i class="fas fa-filter" id="filter-i"></i>
+                <button class="letter-btn">A</button>
+                <button class="letter-btn">B</button>
+                <button class="letter-btn">C</button>
+                <button class="letter-btn">D</button>
+                <button class="letter-btn">E</button>
+                <button class="letter-btn">F</button>
+                <button class="letter-btn">G</button>
+                <button class="letter-btn">H</button>
+                <button class="letter-btn">I</button>
+                <button class="letter-btn">J</button>
+                <button class="letter-btn">K</button>
+                <button class="letter-btn">L</button>
+                <button class="letter-btn">M</button>
+                <button class="letter-btn">N</button>
+                <button class="letter-btn">O</button>
+                <button class="letter-btn">P</button>
+                <button class="letter-btn">Q</button>
+                <button class="letter-btn">R</button>
+                <button class="letter-btn">S</button>
+                <button class="letter-btn">T</button>
+                <button class="letter-btn">U</button>
+                <button class="letter-btn">V</button>
+                <button class="letter-btn">W</button>
+                <button class="letter-btn">X</button>
+                <button class="letter-btn">Y</button>
+                <button class="letter-btn">Z</button>
+                <i class="fas fa-sync" id="refresh" onclick="displayTable()" title="Page refresh"></i>
+            </div>
+
+            <div class="filter-dropdowns">
+                <div class="left-filter">
+                    <p>Filter</p>
+                    <div class="multiselect-wrapper">
+                        <div class="multiselect" data-filter="Status">
+                            <div class="select-box" onclick="toggleDropdown(this)">
+                                <div class="selected">Status</div>
+                                <div class="arrow"><i class="fas fa-caret-down" class="arrow_i"></i></div>
+                            </div>
+                            <div class="dropdown-content">
+                                <label>
+                                    <input type="checkbox" value="Active" onchange="updateSelectedItems(this)">Active
+                                </label>
+                                <label>
+                                    <input type="checkbox" value="Inactive"
+                                        onchange="updateSelectedItems(this)">Inactive
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="multiselect" data-filter="Location">
+                            <div class="select-box" onclick="toggleDropdown(this)">
+                                <div class="selected">Location</div>
+                                <div class="arrow"><i class="fas fa-caret-down" class="arrow_i"></i></div>
+                            </div>
+                            <div class="dropdown-content">
+                                <label><input type="checkbox" value="Hyderabad"
+                                        onchange="updateSelectedItems(this)">Hyderabad</label>
+                                <label><input type="checkbox" value="Bangalore" onchange="updateSelectedItems(this)">
+                                    Bangalore</label>
+                                <label><input type="checkbox" value="Chennai" onchange="updateSelectedItems(this)">
+                                    Chennai</label>
+                            </div>
+                        </div>
+
+                        <div class="multiselect" data-filter="Department">
+                            <div class="select-box" onclick="toggleDropdown(this)">
+                                <div class="selected">Department</div>
+                                <div class="arrow"><i class="fas fa-caret-down" class="arrow_i"></i></div>
+                            </div>
+                            <div class="dropdown-content">
+                                <label><input type="checkbox" value="Full Stack"
+                                        onchange="updateSelectedItems(this)">Full Stack</label>
+                                <label><input type="checkbox" value="UI/UX" onchange="updateSelectedItems(this)">
+                                    UI/UX</label>
+                                <label><input type="checkbox" value="Testing" onchange="updateSelectedItems(this)">
+                                    Testing</label>
+                                <label><input type="checkbox" value="HR Team" onchange="updateSelectedItems(this)"> HR
+                                    Team</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-filter" id="right-filter">
+                    <button class="reset" onclick="displayTable()">Reset</button>
+                    <button class="apply" onclick="displayresult()">Apply</button>
+                </div>
+            </div>
+            <!--Filter section ends here-->
+            <div class="wrapper-class">
+                <!--Delete section starts here-->
+                <div class="delete">
+                    <div class="delete-btn">
+                        <img src="images/arrow-turn left -down.png" alt="down-arrow" class="down-arrow-img">
+                        <button onclick="deleteSelectedRows()" id="deleteButton">Delete</button>
+                    </div>
+                    <div class="table-add">
+                        <img src="images/table-add.png" alt="table-adding">
+                    </div>
+                </div>
+                <!-- Delete section ends here-->
+
+                <!--Table starts here-->
+                <div class="table-wrapper">
+                    <table id="myTable">
+                        <thead id="tableHead">
+                            <tr>
+                                <th><input type="checkbox" name="checkbox" id="selectAllCheckbox"
+                                        title="Select all rows"></th>
+                                <th>
+                                    <div class="th-content" data-column="user">
+                                        <div>
+                                            USERS
+                                        </div>
+                                        <div class="th-icons">
+                                            <i class="fas fa-sort" class="sort-i"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="th-content" data-column="location">
+                                        <div>
+                                            LOCATION
+                                        </div>
+                                        <div class="th-icons">
+                                            <i class="fas fa-sort" class="sort-i"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="th-content" data-column="department">
+                                        <div>
+                                            DEPARTMENT
+                                        </div>
+                                        <div class="th-icons">
+                                            <i class="fas fa-sort" class="sort-i"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="th-content" data-column="role">
+                                        <div>
+                                            ROLE
+                                        </div>
+                                        <div class="th-icons">
+                                            <i class="fas fa-sort" class="sort-i"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="th-content" data-column="empno">
+                                        <div>
+                                            EMP.NO
+                                        </div>
+                                        <div class="th-icons">
+                                            <i class="fas fa-sort" class="sort-i"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="th-content" data-column="status">
+                                        <div>
+                                            STATUS
+                                        </div>
+                                        <div class="th-icons">
+                                            <i class="fas fa-sort" class="sort-i"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="th-content" data-column="joindt">
+                                        <div>
+                                            JOIN DT
+                                        </div>
+                                        <div class="th-icons">
+                                            <i class="fas fa-sort" class="sort-i"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th title="Actions">.....</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employeeList">
+
+                        </tbody>
+                    </table>
+                </div>
+                <!--Table ends here-->
+            </div>
+        </div>
+    </div>
+    <script src="common_script.js"></script>
+    <script src="employees.js"></script>
+</body>
+
+</html>

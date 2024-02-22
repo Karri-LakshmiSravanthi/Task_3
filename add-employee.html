@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-3 Page-2</title>
+    <link rel="stylesheet" href="add-employee.css">
+    <link rel="stylesheet" href="common_css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-...your-integrity-hash-here..." crossorigin="anonymous" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <!--Left panel starts here-->
+        <div class="left-panel" id="leftPanel1">
+            <div class="logo-area">
+                <div class="logo">
+                    <img src="images/TezoLogo.svg" alt="logo">
+                </div>
+            </div>
+            <div class="main-dashboard">
+                <div class="all">
+                    <p>ALL</p>
+                    <div class="dashboard">
+                        <img src="images/Horizontal nav/Dashboard.svg" alt="icon" class="dashboard-img">
+                        <p><b>Dashboard</b></p>
+                    </div>
+                    <div class="emp-border">
+                        <div class="employees">
+                            <img src="images/team_svgrepo.com.svg" alt="icon" class="employee-img">
+                            <p><a href="employees.html"><b>Employees</b></a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="role">
+                    <p>ROLE / USER MANAGEMENT</p>
+                    <div class="roles">
+                        <div class="roles-left">
+                            <img src="images/Horizontal nav/Roles.svg" alt="icon" class="roles-img">
+                            <a href="roles.html"><b>Roles</b></a>
+                        </div>
+                        <div class="roles-right">
+                            <i class="fas fa-greater-than"></i>
+                        </div>
+                    </div>
+                    <div class="access">
+                        <div class="access-left">
+                            <img src="images/Horizontal nav/assign user.svg" alt="icon" class="assign-img">
+                            <p><b>Access rights</b></p>
+                        </div>
+                        <div class="access-right">
+                            <i class="fas fa-greater-than"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="update" id="update">
+                <div class="update-content">
+                    <p class="update-title"><b>Install new updates 2.3.1A</b></p>
+                    <p>Allow to launch the new update for AD application.</p>
+                    <button class="dismiss-btn" onclick="dismiss()">Dismiss</button>
+                    <button class="accept-btn">Accept</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="leftPanel2">
+            <div class="side-navbar">
+                <img src="images/TezoLogoSymbol.png" alt="">
+                <img src="images/Horizontal nav/Dashboard.svg" alt="">
+                <a href="employees.html"><img src="images/team_svgrepo.com.svg" alt=""></a>
+                <a href="roles.html"><img src="images/Horizontal nav/Roles.svg" alt=""></a>
+                <img src="images/Horizontal nav/assign user.svg" alt="">
+            </div>
+        </div>
+        <!--Left panel ends here-->
+
+        <!--Right panel starts here-->
+        <div class="right-panel" id="rightPanel1">
+            <!--Search panel Starts here-->
+            <div class="handle">
+                <img src="images/handle.png" alt="Image" onclick="SideBar()" class="handle-icon">
+            </div>
+            <div class="search-panel">
+                <div class="search-leftpart">
+                    <img src="images/bx-search.png" alt="search">
+                    <input type="text" placeholder="Search" class="search">
+                </div>
+                <div class="search-rightpart">
+                    <img src="images/IconButton.png" alt="iconbutton">
+                    <img src="images/Vertical Navbar/Categories.svg" alt="dashboard">
+                    <img src="images/icon2.png" alt="icon2">
+                    <img src="images/icon3.png" alt="icon3">
+                    <div class="profile-content">
+                        <i class="fas fa-user-circle"></i>
+                        <p>John Abraham<br />Admin</p>
+                    </div>
+                    <i class="fas fa-caret-down" class="arrow"></i>
+                </div>
+            </div>
+            <!--Search panel ends here-->
+
+            <!--Adding new employee starts here-->
+            <div class="add-employee-wrapper">
+                <h3>Add Employee</h3>
+                <div class="form-wrapper">
+                    <form id="addForm">
+                        <div class="profile-pic">
+                            <img src="images/profile.jpg" alt="" id="ppImg">
+                            <button type="button" id="uploadButton"><input type="file" id="uploadInput" accept="image/*"
+                                    style="display: none;">Upload Profile Picture</button>
+                        </div>
+                        <p><b>Personal Information</b></p>
+                        <div class="emp-no">
+                            <label>Emp No</label>
+                            <input type="text" id="empno" placeholder="Should be unique">
+                            <p class="error-message" id="empno-error"></p>
+                        </div>
+                        <div class="names">
+                            <div>
+                                <label>First Name</label>
+                                <input type="text" placeholder="Text" id="fname">
+                                <p class="error-message" id="fname-error"></p>
+                            </div>
+                            <div>
+                                <label>Last Name</label>
+                                <input type="text" placeholder="Text" id="lname">
+                                <p class="error-message" id="lname-error"></p>
+                            </div>
+                            <div>
+                                <label>Date of Birth</label>
+                                <input type="date" id="dob">
+                            </div>
+                        </div>
+                        <div class="contact-info">
+                            <div>
+                                <label>Email ID</label>
+                                <input type="email" placeholder="joe.j@Technovert.com" id="email">
+                                <p class="error-message" id="email-error"></p>
+                            </div>
+                            <div>
+                                <label>Mobile Number</label>
+                                <input type="tel" placeholder="0000000000" maxlength="10" id="phone">
+                                <p class="error-message" id="phone-error"></p>
+                            </div>
+                        </div>
+
+                        <p class="emp-info"><b>Employment information</b></p>
+                        <div class="joining-info">
+                            <div>
+                                <label>Joining Date</label>
+                                <input type="date" name="" id="joindt">
+                                <p class="error-message" id="joindt-error"></p>
+                            </div>
+                            <div>
+                                <label>Location</label>
+                                <select id="location">
+                                    <option>N/A</option>
+                                    <option>Hyderabad</option>
+                                    <option>Bangalore</option>
+                                    <option>Chennai</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="job-info">
+                            <div>
+                                <label>Job Title</label>
+                                <select id="role">
+                                    <option>N/A</option>
+                                    <option>Software Developer</option>
+                                    <option>UI/UX Designer</option>
+                                    <option>Quality Assurance</option>
+                                    <option>Employee Specialist</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Department</label>
+                                <select id="department">
+                                    <option>N/A</option>
+                                    <option>Full Stack</option>
+                                    <option>UI/UX</option>
+                                    <option>Testing</option>
+                                    <option>HR Team</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <div class="sec">
+                                <label>Assign Manager</label>
+                                <input type="text" id="searchInput" class="managerName" placeholder="Search"
+                                    onclick="searchFunc()">
+                                <div id="dropdownContent" class="dropdown-content">
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <i class="fas fa-user-circle" class="profile-i"></i>
+                                            <span class="name">Jennifer Dsousa</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <i class="fas fa-user-circle" class="profile-i"></i>
+                                            <span class="name">John Doe</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <i class="fas fa-user-circle" class="profile-i"></i>
+                                            <span class="name">Edgar Jones</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <i class="fas fa-user-circle" class="profile-i"></i>
+                                            <span class="name">Smith</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <i class="fas fa-user-circle" class="profile-i"></i>
+                                            <span class="name">Chris</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <i class="fas fa-user-circle" class="profile-i"></i>
+                                            <span class="name">Marco</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <i class="fas fa-user-circle" class="profile-i"></i>
+                                            <span class="name">Takeshi</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <i class="fas fa-user-circle" class="profile-i"></i>
+                                            <span class="name">Jacques</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sec">
+                                <label>Assign Project</label>
+                                <input type="text" id="searchInput" class="projectName" placeholder="Search"
+                                    onclick="searchFunc()">
+                                <div id="dropdownContent" class="dropdown-content">
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <span class="name">Full Stack</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <span class="name">UI/UX</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <span class="name">Testing</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <span class="name">HR</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <span class="name">Data Analytics</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+
+                                    <div class="option">
+                                        <div class="opt-left">
+                                            <span class="name">Business Management</span>
+                                        </div>
+                                        <div class="opt-right">
+                                            <input type="checkbox" class="option-checkbox">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <button class="cancel" onclick="refresh()"><a href="employees.html">Cancel</a></button>
+                            <button class="add-btn" type="button" onclick="validateForm()" id="update-btn">Add
+                                Employee</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--Adding new employee starts here-->
+            <!--Employee addes successfully alert starts here-->
+            <div id="alertBox" class="alertBox">
+                <div class="alertContent">
+                    <span class="successMessage">Employee added successfully!</span>
+                </div>
+            </div>
+            <!--Employee addes successfully alert ends here-->
+        </div>
+        <!--Right panel ends here-->
+    </div>
+
+    <script src="common_script.js"></script>
+    <script src="add-employee.js"></script>
+    <script src="new-role.js"></script>
+</body>
+
+</html>

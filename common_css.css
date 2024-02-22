@@ -1,0 +1,195 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0%;
+    font-size: 0.9rem;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-family: "poppins";
+}
+
+.right-panel {
+    width: 82%;
+    height: 100%;
+    padding:0rem 0.5rem 0rem 1rem;
+    background-color: rgb(249, 253, 255) ;
+    position: relative;
+}
+
+.left-panel {
+    width:17%;
+    height: 100%;
+    background-color: white;
+    padding-left:1rem;
+    position: relative;
+}
+
+#leftPanel2{
+    width:5%;
+}
+
+#leftPanel2 .side-navbar{
+    display: block;
+}
+
+#leftPanel2 .side-navbar img
+{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 1rem;
+}
+
+#leftPanel2{
+    display: none;
+}
+
+.logo-area{
+    display: flex;
+    /* position: relative; */
+}
+
+.logo-area .logo{
+    padding:1.5rem 2rem 1rem 0rem;
+}
+
+.handle{
+    padding:1.5rem 0rem 1rem 2rem;
+    position: absolute;
+    left: -3rem;
+    cursor: pointer; 
+}
+
+.dashboard, .employees, .roles, .access{
+    display: flex;
+}
+
+.employees p{
+    padding-left: 1rem;
+}
+
+.employees img{
+    width: 1.5rem;
+}
+
+.roles, .access{
+    align-items: center;
+}
+
+.roles-left{
+    display: flex;
+    flex: 1;
+}
+
+.roles-right{
+    padding-right:0.5rem;
+}
+
+.access i{
+    color:rgb(117, 117, 117);
+    font-size: 0.9rem;
+}
+
+.access-left{
+    display: flex;
+    flex: 1;
+}
+
+.access-right{
+    padding-right:1.5rem;
+}
+
+.dashboard-img, .roles-img, .assign-img{
+    padding-right: 1rem;
+}
+
+.update{
+    background-color: rgb(253, 243, 243);
+    border-radius:6px;
+    margin:0rem 1rem 0.5rem 0rem;
+    position: absolute;
+    bottom: 0;
+}
+
+.update-content{
+    padding:1rem 1rem;
+}
+
+.update-content .update-title{
+    color: red;
+}
+
+.dismiss-btn, .accept-btn{
+    width:6rem;
+    height: 2rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.dismiss-btn{
+    color: red;
+    background-color: rgb(250, 217, 217);
+    font-weight: bold;
+}
+
+.accept-btn{
+    color:white;
+    background-color: rgb(251, 57, 57);
+    font-weight: bold;
+}
+
+.search-panel{
+    display: flex;
+    background-color:white;
+    border-radius:10px;
+    width: 100%;
+    box-shadow:2px 1px 10px rgb(220, 220, 220);
+    margin-top: 0.5rem;
+}
+
+.search-leftpart{
+    display: flex;
+    width:50%;
+}
+
+.search-rightpart{
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+}
+
+.search-leftpart img{
+    width:1.5rem;
+    height: 1.5rem;
+    padding:1.8rem 0.5rem 1.5rem 1rem;
+}
+
+.search{
+    border: none;
+    outline: none;
+}
+
+.search-rightpart img{
+    width:2.5rem;
+    height: 2.5rem;
+    padding: 1rem 0rem;
+}
+
+.search-rightpart i{
+    font-size: 1.5rem;
+    padding:1.2rem 1rem 1rem 1rem;
+}
+
+.profile-content{
+    display:flex;
+    padding-top:0.3rem;
+}
+

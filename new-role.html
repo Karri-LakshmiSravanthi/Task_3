@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-3 Page-1</title>
+    <link rel="stylesheet" href="new-role.css">
+    <link rel="stylesheet" href="common_css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-...your-integrity-hash-here..." crossorigin="anonymous" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <!--Left starts here-->
+        <div class="left-panel" id="leftPanel1">
+            <div class="logo-area">
+                <div class="logo">
+                    <img src="images/TezoLogo.svg" alt="logo">
+                </div>
+            </div>
+            <div class="main-dashboard">
+                <div class="all">
+                    <p>ALL</p>
+                    <div class="dashboard">
+                        <img src="images/Horizontal nav/Dashboard.svg" alt="icon" class="dashboard-img">
+                        <p><b>Dashboard</b></p>
+                    </div>
+                    <div class="employees">
+                        <img src="images/team_svgrepo.com.svg" alt="icon" class="employee-img">
+                        <p><a href="employees.html">Employees</a></p>
+                    </div>
+                </div>
+                <div class="role">
+                    <p>ROLE / USER MANAGEMENT</p>
+                    <div class="roles-border">
+                        <div class="roles">
+                            <div class="roles-left">
+                                <img src="images/Horizontal nav/Roles.svg" alt="icon" class="roles-img">
+                                <p><b>Roles</b></p>
+                            </div>
+                            <div class="roles-right">
+                                <i class="fas fa-greater-than"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="access">
+                        <div class="access-left">
+                            <img src="images/Horizontal nav/assign user.svg" alt="icon" class="assign-img">
+                            <p><b>Access rights</b></p>
+                        </div>
+                        <div class="access-right">
+                            <i class="fas fa-greater-than"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="update" id="update">
+                <div class="update-content">
+                    <p class="update-title"><b>Install new updates 2.3.1A</b></p>
+                    <p>Allow to launch the new update for AD application.</p>
+                    <button class="dismiss-btn" onclick="dismiss()">Dismiss</button>
+                    <button class="accept-btn">Accept</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="leftPanel2">
+            <div class="side-navbar">
+                <img src="images/TezoLogoSymbol.png" alt="">
+                <img src="images/Horizontal nav/Dashboard.svg" alt="">
+                <a href="employees.html"><img src="images/team_svgrepo.com.svg" alt=""></a>
+                <a href="roles.html"><img src="images/Horizontal nav/Roles.svg" alt=""></a>
+                <img src="images/Horizontal nav/assign user.svg" alt="">
+            </div>
+        </div>
+        <!--Left ends here-->
+
+        <!--Right starts here-->
+        <div class="right-panel" id="rightPanel1">
+            <!--Search panel Starts here-->
+            <div class="handle">
+                <img src="images/handle.png" alt="Image" onclick="SideBar()" class="handle-icon">
+            </div>
+            <div class="search-panel">
+                <div class="search-leftpart">
+                    <img src="images/bx-search.png" alt="search">
+                    <input type="text" placeholder="Search" class="search">
+                </div>
+                <div class="search-rightpart">
+                    <img src="images/IconButton.png" alt="iconbutton">
+                    <img src="images/Vertical Navbar/Categories.svg" alt="dashboard">
+                    <img src="images/icon2.png" alt="icon2">
+                    <img src="images/icon3.png" alt="icon3">
+                    <div class="profile-content">
+                        <i class="fas fa-user-circle"></i>
+                        <p>John Abraham<br />Admin</p>
+                    </div>
+                    <i class="fas fa-caret-down" class="arrow"></i>
+                </div>
+            </div>
+            <!--Search panel ends here-->
+
+            <!--Creating new role starts here-->
+            <div class="new-role">
+                <div>
+                    <h3>Create new role</h3>
+                </div>
+                <div class="newrole-details">
+                    <div class="role-name">
+                        <p>Role Name</p>
+                        <input type="text">
+                    </div>
+                    <div class="department">
+                        <p>Department</p>
+                        <select>
+                            <option>N/A</option>
+                            <option>Product Engineering</option>
+                            <option>UI/UX</option>
+                            <option>Quality Assurance</option>
+                            <option>HR Team</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="role-description">
+                <p>Description</p>
+                <input type="text" placeholder="Text">
+            </div>
+            <div class="location">
+                <p>Location</p>
+                <select>
+                    <option>N/A</option>
+                    <option>Hyderabad</option>
+                    <option>Chennai</option>
+                    <option>Bangalore</option>
+                </select>
+            </div>
+
+            <div class="sec">
+                <label>Assign Manager</label>
+                <input type="text" id="searchInput" placeholder="Search" value="" onclick="searchFunc()">
+                <div id="dropdownContent" class="dropdown-content">
+                    <div class="option">
+                        <div class="opt-left">
+                            <i class="fas fa-user-circle" class="profile-i"></i>
+                            <span class="name">Jennifer Dsousa</span>
+                        </div>
+                        <div class="opt-right">
+                            <input type="checkbox" class="option-checkbox">
+                        </div>
+                    </div>
+                    <div class="option">
+                        <div class="opt-left">
+                            <i class="fas fa-user-circle" class="profile-i"></i>
+                            <span class="name">John Doe</span>
+                        </div>
+                        <div class="opt-right">
+                            <input type="checkbox" class="option-checkbox">
+                        </div>
+                    </div>
+                    <div class="option">
+                        <div class="opt-left">
+                            <i class="fas fa-user-circle" class="profile-i"></i>
+                            <span class="name">Edgar Jones</span>
+                        </div>
+                        <div class="opt-right">
+                            <input type="checkbox" class="option-checkbox">
+                        </div>
+                    </div>
+                    <div class="option">
+                        <div class="opt-left">
+                            <i class="fas fa-user-circle" class="profile-i"></i>
+                            <span class="name">Smith</span>
+                        </div>
+                        <div class="opt-right">
+                            <input type="checkbox" class="option-checkbox">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn">
+                <button class="cancel">Cancel</button>
+                <button class="role">Add Role</button>
+            </div>
+            <!--Creating new role ends here-->
+        </div>
+        <!--Right ends here-->
+    </div>
+
+    <script src="common_script.js"></script>
+    <script src="new-role.js"></script>
+</body>
+
+</html>

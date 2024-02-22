@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <input type="text" id="searchInput" placeholder="Search for an employee">
+    <div id="dropdownContent" class="dropdown-content">
+        <div class="option">
+            <div class="opt-left">
+                <img src="icon1.png" class="profile-img">
+                <span class="name">Jennifer Dsousa</span>
+            </div>
+            <div class="opt-right">
+                <input type="checkbox" class="option-checkbox">
+            </div>
+        </div>
+
+        <div class="option">
+            <div class="opt-left">
+                <img src="icon1.png" class="profile-img">
+                <span class="name">John Doe</span>
+            </div>
+            <div class="opt-right">
+                <input type="checkbox" class="option-checkbox">
+            </div>
+        </div>
+
+        <div class="option">
+            <div class="opt-left">
+                <img src="icon1.png" class="profile-img">
+                <span class="name">Edgar Jones</span>
+            </div>
+            <div class="opt-right">
+                <input type="checkbox" class="option-checkbox">
+            </div>
+        </div>
+
+        <div class="option">
+            <div class="opt-left">
+                <img src="icon1.png" class="profile-img">
+                <span class="name">Smith</span>
+            </div>
+            <div class="opt-right">
+                <input type="checkbox" class="option-checkbox">
+            </div>
+        </div>
+        <!-- Add more options as needed -->
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
+
+
+
+
+.dropdown {
+    position: relative;
+}
+
+#searchInput {
+    width: 200px;
+    height: 25px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline-color: skyblue;
+}
+
+#searchInput:focus+#dropdownContent {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    z-index: 1;
+    width: 212px;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.option {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    border: 1px solid black;
+    margin-top: 1px;
+}
+
+.option:hover {
+    background-color: #f0f0f0;
+}
+
+.profile-img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.opt-left {
+    display: flex;
+    flex: 1 1 0;
+}
+
+input[type="checkbox"]:checked {
+    accent-color: red;
+}
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("searchInput").addEventListener("input", function () {
+      var input, filter, dropdown, options, i, txtValue;
+      input = this.value;
+      filter = input.toUpperCase();
+      dropdown = document.getElementById("dropdownContent");
+      options = dropdown.getElementsByClassName("option");
+      if (input.length > 0) {
+        dropdown.classList.add("show");
+      } else {
+        dropdown.classList.remove("show");
+      }
+      for (i = 0; i < options.length; i++) {
+        txtValue = options[i].getElementsByClassName("name")[0].textContent || options[i].getElementsByClassName("name")[0].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          options[i].style.display = "";
+        } else {
+          options[i].style.display = "none";
+        }
+      }
+    });
+  
+    var checkboxes = document.querySelectorAll('.option-checkbox');
+    checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        if (this.checked) {
+          // Uncheck previously checked checkboxes
+          checkboxes.forEach(function (otherCheckbox) {
+            if (otherCheckbox !== checkbox) {
+              otherCheckbox.checked = false;
+            }
+          });
+          var name = this.closest('.option').querySelector('.name').textContent;
+          document.getElementById('searchInput').value = name;
+        } else {
+          document.getElementById('searchInput').value = "";
+        }
+      });
+    });
+  
+  
+    // var options = document.querySelectorAll('.option');
+    // options.forEach(function (option) {
+    //   option.addEventListener('click', function () {
+    //     var name = this.querySelector('.name').textContent;
+    //     var searchInput = document.getElementById('searchInput');
+    //     if (searchInput.value === name) {
+    //       searchInput.value = "";
+    //     } else {
+    //       searchInput.value = name;
+    //     }
+    //   });
+    // });
+  });
+  

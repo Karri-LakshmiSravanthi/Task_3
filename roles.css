@@ -1,0 +1,296 @@
+.roles{
+    background-color: rgb(255, 209, 209);
+    border-radius:4px;
+    margin:0rem 1rem 0rem -1rem;
+    padding-left: 1rem;
+    color: red;
+    align-items: center;
+}
+
+.roles-border{
+    border-right: 4px solid red ;
+    border-radius: 2px;
+}
+
+.roles i{
+    color:red;
+    font-size: 0.9rem;
+}
+
+.employees p a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.operations{
+    display: flex;
+}
+
+.operations .op-content{
+    width: 65%;
+}
+
+.operations .op-btn{
+    width: 35%;
+    display: flex;
+    margin-top: 1.5rem;
+    justify-content: flex-end;
+}
+
+.add-btn{
+    background-color:rgb(251, 57, 57);
+    box-shadow: 2px 1px 10px rgb(220, 220, 220);
+    border: none;
+    width: 11.5rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-btn a{
+    text-decoration: none;
+    color: white;
+}
+
+.filter-dropdowns{
+    width: 100%;
+    display: flex;
+    background-color: rgb(250, 217, 217);
+    border-radius:4px;
+    border: 1px red solid;
+}
+
+.filter-dropdowns .left-filter{
+    width: 50%;
+    display: flex;
+}
+
+.filter-dropdowns .right-filter{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.left-filter p{
+    padding-left:1rem;
+    color: red;
+    padding-top:0.5rem;
+}
+
+.left-filter i{
+    padding: 1.3rem 0.5rem;
+    color: red;
+    margin-top:0.5rem;
+}
+
+.left-filter select{
+    margin:1rem 0.5rem;
+    padding:0.3rem;
+    border-radius:3px;
+    border-color:red;
+}
+
+.right-filter button{
+    margin: 1rem 1rem 1rem 0rem;
+    padding:0.3rem 0.9rem;
+}
+
+.right-filter .reset{
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 4px;
+    color: red;
+    cursor: pointer;
+}
+
+.right-filter .apply{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.role-details{
+    width: 100%;
+    display: flex;
+}
+
+.details-card{
+    width:33%;
+    display: block;
+    margin: 1rem 0.3rem 0rem 0.3rem;
+    border: 1px solid rgb(91, 91, 91);
+    border-radius:4px;
+    background-color: white;
+}
+
+.line{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0.4rem;
+}
+
+#line{
+    margin-top: 1rem;
+}
+
+.icon{
+    margin-left:0.5rem;
+}
+
+.icon img{
+    width: 1rem;
+    height: 1rem;
+}
+
+.right-text{
+    text-align: right;
+    padding:0rem 0.7rem 0rem 0.5rem;
+}
+
+.right-text span,img{
+    cursor: pointer;
+}
+
+.edit-symbol{
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.many-users i{
+    font-size: 1.5rem;
+    padding-right:0.7rem;
+}
+
+.right-text img{
+    margin-top:0.7rem;
+}
+
+
+@media (max-width: 768px){
+
+    .left-panel{
+        width:30%;
+    }
+
+    .right-panel{
+        width: 70%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .search-leftpart img {
+        padding: 2rem 0.5rem 1.5rem 1rem;
+    }
+
+    .search-rightpart img{
+        padding: 1.5rem 0rem;
+    }
+
+    .search-rightpart i {
+        padding: 1.5rem 0rem 1rem 0rem;
+    }
+
+    .search-rightpart p{
+        display:none;
+    }
+    
+    .details-wrapper{
+        max-height:490px;
+        overflow-y: scroll;
+        margin-top: 1rem;
+    }
+
+    .role-details{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .role-details .details-card{
+        width: 70%;
+    }
+}
+
+
+@media (max-width: 425px){
+
+    .container{
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+    
+    .left-panel{
+        width:34% !important;
+    }
+
+    .right-panel{
+        width: 66% !important;
+        padding: 0;
+        margin: 0;
+
+    }
+
+    .search-panel{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    input[type="text"] {
+        outline: 1px solid rgb(108, 108, 108);
+        border-radius:4px;
+    }
+
+    .search-leftpart, .search-rightpart{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-leftpart{
+        margin-left:5rem ;
+    }
+
+    .search-rightpart{
+        display:flex;
+        margin-left:10rem;
+    }
+
+    .search-rightpart i{
+        padding: 0.5rem 0rem 0rem 0.2rem;
+    }
+
+    .search-rightpart p{
+        display:none;
+    }
+
+    .operations {
+        display: flex;
+        padding: 8px;
+    }
+
+    .add-btn{
+        margin-top: 1rem;
+    }
+
+    .filter-dropdowns{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .filter-dropdowns .left-filter, .right-filter{
+        width: 100%;
+    }
+
+    .details-wrapper{
+        max-height:500px;
+        overflow-y: scroll;
+        margin-top: 1rem;
+    }
+}

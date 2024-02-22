@@ -1,0 +1,203 @@
+.container {
+    height: 100% !important;
+}
+
+.left-panel {
+    width: 17.2% !important;
+    height: 115% !important;
+}
+
+.right-panel {
+    height: 115% !important;
+}
+
+.roles {
+    background-color: rgb(255, 209, 209);
+    border-radius: 4px;
+    margin: 0rem 1rem 0rem -1rem;
+    padding-left: 1rem;
+    color: red;
+    align-items: center;
+}
+
+.roles-border {
+    border-right: 4px solid red;
+    border-radius: 2px;
+}
+
+.roles i {
+    color: red;
+    font-size: 0.9rem;
+}
+
+.employees p a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.new-role {
+    width: 100%;
+}
+
+.newrole-details {
+    width: 100%;
+    display: flex;
+}
+
+.role-name {
+    width: 30%;
+}
+
+.department {
+    width: 30%;
+}
+
+.role-name input {
+    outline: none;
+    height: 1.5rem;
+    width: 20rem;
+}
+
+.department select {
+    height: 1.9rem;
+    width: 15rem;
+}
+
+.role-name input:focus {
+    outline: 2px solid rgb(2, 183, 255);
+    border: none;
+}
+
+.role-description {
+    position: relative;
+}
+
+.role-description input {
+    height: 8rem;
+    width: 36.5rem;
+}
+
+.role-description input[type="text"]::placeholder {
+    position: absolute;
+    top: 2px;
+}
+
+.location select {
+    height: 1.9rem;
+    width: 25rem;
+}
+
+.sec label {
+    display: block;
+    margin: 2rem 0rem 1rem 0rem;
+}
+
+#searchInput {
+    width:24.5rem;
+    height: 1.2rem;
+    padding: 3px;
+    border: 1px solid rgb(86, 86, 86);
+    border-radius: 3px;
+    outline-color: skyblue;
+}
+
+#searchInput:focus+#dropdownContent {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    z-index: 1;
+    width: 24.9rem;
+}
+
+.option {
+    padding: 0.3rem 0.3rem 0rem 0.3rem;
+    cursor: pointer;
+    display: flex;
+    border: 1px solid black;
+    margin-top: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.option:hover {
+    background-color: #f0f0f0;
+}
+
+.opt-left {
+    display: flex;
+    flex: 1;
+}
+
+input[type="checkbox"]:checked {
+    accent-color: red;
+}
+
+.opt-left i {
+    font-size: 1.5rem;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10rem;
+}
+
+.btn button {
+    padding: 0.5rem 2rem;
+    margin: 2rem 0.5rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn .cancel {
+    background-color: rgb(255, 209, 209);
+    color: red;
+}
+
+.btn .role {
+    background-color: rgb(251, 57, 57);
+    color: white;
+}
+
+
+@media (max-width: 768px) {
+
+    .left-panel {
+        width: 30%;
+    }
+
+    .right-panel {
+        width: 70%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .search-leftpart img {
+        padding: 2rem 0.5rem 1.5rem 1rem;
+    }
+
+    .search-rightpart img {
+        padding: 1.5rem 0rem;
+    }
+
+    .search-rightpart i {
+        padding: 1.5rem 0rem 1rem 0rem;
+    }
+
+    .search-rightpart p {
+        display: none;
+    }
+
+    .newrole-details {
+        flex-direction: column;
+    }
+}

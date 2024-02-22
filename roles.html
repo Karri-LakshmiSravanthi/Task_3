@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-2 Page-2</title>
+    <link rel="stylesheet" href="roles.css">
+    <link rel="stylesheet" href="common_css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-...your-integrity-hash-here..." crossorigin="anonymous" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <!--Left panel starts here-->
+        <div class="left-panel" id="leftPanel1">
+            <div class="logo-area">
+                <div class="logo">
+                    <img src="images/TezoLogo.svg" alt="logo">
+                </div>
+            </div>
+            <div class="main-dashboard">
+                <div class="all">
+                    <p>ALL</p>
+                    <div class="dashboard">
+                        <img src="images/Horizontal nav/Dashboard.svg" alt="icon" class="dashboard-img">
+                        <p><b>Dashboard</b></p>
+                    </div>
+                    <div class="employees">
+                        <img src="images/team_svgrepo.com.svg" alt="icon" class="employee-img">
+                        <p><a href="employees.html">Employees</a></p>
+                    </div>
+                </div>
+                <div class="role">
+                    <p>ROLE / USER MANAGEMENT</p>
+                    <div class="roles-border">
+                        <div class="roles">
+                            <div class="roles-left">
+                                <img src="images/Horizontal nav/Roles.svg" alt="icon" class="roles-img">
+                                <p><b>Roles</b></p>
+                            </div>
+                            <div class="roles-right">
+                                <i class="fas fa-greater-than"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="access">
+                        <div class="access-left">
+                            <img src="images/Horizontal nav/assign user.svg" alt="icon" class="assign-img">
+                            <p><b>Access rights</b></p>    
+                        </div>
+                        <div class="access-right">
+                            <i class="fas fa-greater-than"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="update" id="update">
+                <div class="update-content">
+                    <p class="update-title"><b>Install new updates 2.3.1A</b></p>
+                    <p>Allow to launch the new update for AD application.</p>
+                    <button class="dismiss-btn" onclick="dismiss()">Dismiss</button>
+                    <button class="accept-btn">Accept</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="leftPanel2">
+            <div class="side-navbar">
+                <img src="images/TezoLogoSymbol.png" alt="">
+                <img src="images/Horizontal nav/Dashboard.svg" alt="">
+                <a href="employees.html"><img src="images/team_svgrepo.com.svg" alt=""></a>
+                <img src="images/Horizontal nav/Roles.svg" alt="">
+                <img src="images/Horizontal nav/assign user.svg" alt="">
+            </div>
+        </div>
+        <!--Left panel ends here-->
+
+        <!--Right panel starts here-->
+        <div class="right-panel" id="rightPanel1">
+            <div class="handle">
+                <img src="images/handle.png" alt="Image" onclick="SideBar()" class="handle-icon">
+            </div>
+            <!--Search panel Starts here-->
+            <div class="search-panel">
+                <div class="search-leftpart">
+                    <img src="images/bx-search.png" alt="search">
+                    <input type="text" placeholder="Search" class="search">
+                </div>
+                <div class="search-rightpart">
+                    <img src="images/IconButton.png" alt="iconbutton">
+                    <img src="images/Vertical Navbar/Categories.svg" alt="dashboard">
+                    <img src="images/icon2.png" alt="icon2">
+                    <img src="images/icon3.png" alt="icon3">
+                    <div class="profile-content">
+                        <i class="fas fa-user-circle"></i>
+                        <p>John Abraham<br />Admin</p>
+                    </div>
+                    <i class="fas fa-caret-down" class="arrow"></i>
+                </div>
+            </div>
+            <!--Search panel ends here-->
+
+            <!--Operations starts here-->
+            <div class="operations">
+                <div class="op-content">
+                    <p><b>Roles</b></p>
+                    <p>All the roles are configured here.</p>
+                </div>
+                <div class="op-btn">
+                    <button class="add-btn"><a href="new-role.html">+ ADD ROLE</a></button>
+                </div>
+            </div>
+            <!--Operations ends here-->
+
+            <!--Filter section starts here-->
+            <div class="filter-dropdowns">
+                <div class="left-filter">
+                    <p>Filter</p>
+                    <i class="fas fa-sort-amount-down-alt"></i>
+                    <select>
+                        <option>Department</option>
+                        <option>Prod Engg</option>
+                        <option>Quality testing</option>
+                    </select>
+                    <select>
+                        <option>Loaction</option>
+                        <option>Hyderabad</option>
+                        <option>Vizag</option>
+                    </select>
+                </div>
+                <div class="right-filter">
+                    <button class="reset">Reset</button>
+                    <button class="apply">Apply</button>
+                </div>
+            </div>
+            <!--Filter section ends here-->
+
+            <!--Role details starts here-->
+            <div class="details-wrapper">
+                <div class="role-details">
+                    <div class="details-card">
+                        <div class="line" id="line">
+                            <div class="right-text">
+                                <b>Customer Service Manager</b>
+                            </div>
+                            <div>
+                                <img src="images/edit.svg" alt="" class="edit-symbol">
+                            </div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/team_svgrepo.com.svg" alt="" class="">
+                                <span>Department</span>
+                            </div>
+                            <div class="right-text">
+                                IT
+                            </div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/location-pin-alt-1_svgrepo.com.svg" alt="">
+                                <span>Location</span>
+                            </div>
+                            <div class="right-text">Hyderabad</div>
+                        </div>
+                        <div class="line">
+                            <div class="right-text">Total Employees</div>
+                            <div class="many-users"><i class="fas fa-user-circle"></i></div>
+                        </div>
+                        <div class="line">
+                            <div class="icon"></div>
+                            <div class="right-text">
+                                <span>View all employees</span>
+                                <img src="images/Vector.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card">
+                        <div class="line" id="line">
+                            <div class="right-text"><b>UX Designer</b></div>
+                            <div><img src="images/edit.svg" alt="" class="edit-symbol"></div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/team_svgrepo.com.svg" alt="" class="">
+                                <span>Department</span>
+                            </div>
+                            <div class="right-text">Product Engg.</div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/location-pin-alt-1_svgrepo.com.svg" alt="">
+                                <span>Location</span>
+                            </div>
+                            <div class="right-text">Hyderabad</div>
+                        </div>
+                        <div class="line">
+                            <div class="right-text">Total Employees</div>
+                            <div class="many-users"><i class="fas fa-user-circle"></i></div>
+                        </div>
+                        <div class="line">
+                            <div class="icon"></div>
+                            <div class="right-text">
+                                <span>View all employees</span>
+                                <img src="images/Vector.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card">
+                        <div class="line" id="line">
+                            <div class="right-text"><b>Assisstant backend developer</b></div>
+                            <div><img src="images/edit.svg" alt="" class="edit-symbol"></div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/team_svgrepo.com.svg" alt="" class="">
+                                <span>Department</span>
+                            </div>
+                            <div class="right-text">UI / UX</div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/location-pin-alt-1_svgrepo.com.svg" alt="">
+                                <span>Location</span>
+                            </div>
+                            <div class="right-text">Hyderabad</div>
+                        </div>
+                        <div class="line">
+                            <div class="right-text">Total Employees</div>
+                            <div class="many-users"><i class="fas fa-user-circle"></i></div>
+                        </div>
+                        <div class="line">
+                            <div class="icon"></div>
+                            <div class="right-text">
+                                <span>View all employees</span>
+                                <img src="images/Vector.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="role-details">
+                    <div class="details-card">
+                        <div class="line" id="line">
+                            <div class="right-text">
+                                <b>Human resource manager</b>
+                            </div>
+                            <div>
+                                <img src="images/edit.svg" alt="" class="edit-symbol">
+                            </div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/team_svgrepo.com.svg" alt="" class="">
+                                <span>Department</span>
+                            </div>
+                            <div class="right-text">
+                                IT
+                            </div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/location-pin-alt-1_svgrepo.com.svg" alt="">
+                                <span>Location</span>
+                            </div>
+                            <div class="right-text">Hyderabad</div>
+                        </div>
+                        <div class="line">
+                            <div class="right-text">Total Employees</div>
+                            <div class="many-users"><i class="fas fa-user-circle"></i></div>
+                        </div>
+                        <div class="line">
+                            <div class="icon"></div>
+                            <div class="right-text">
+                                <span>View all employees</span>
+                                <img src="images/Vector.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card">
+                        <div class="line" id="line">
+                            <div class="right-text"><b>Front end developer</b></div>
+                            <div><img src="images/edit.svg" alt="" class="edit-symbol"></div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/team_svgrepo.com.svg" alt="" class="">
+                                <span>Department</span>
+                            </div>
+                            <div class="right-text">Product Engg.</div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/location-pin-alt-1_svgrepo.com.svg" alt="">
+                                <span>Location</span>
+                            </div>
+                            <div class="right-text">Hyderabad</div>
+                        </div>
+                        <div class="line">
+                            <div class="right-text">Total Employees</div>
+                            <div class="many-users"><i class="fas fa-user-circle"></i></div>
+                        </div>
+                        <div class="line">
+                            <div class="icon"></div>
+                            <div class="right-text">
+                                <span>View all employees</span>
+                                <img src="images/Vector.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card">
+                        <div class="line" id="line">
+                            <div class="right-text"><b>Senior developer</b></div>
+                            <div><img src="images/edit.svg" alt="" class="edit-symbol"></div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/team_svgrepo.com.svg" alt="" class="">
+                                <span>Department</span>
+                            </div>
+                            <div class="right-text">UI / UX</div>
+                        </div>
+                        <div class="line">
+                            <div class="icon">
+                                <img src="images/location-pin-alt-1_svgrepo.com.svg" alt="">
+                                <span>Location</span>
+                            </div>
+                            <div class="right-text">Hyderabad</div>
+                        </div>
+                        <div class="line">
+                            <div class="right-text">Total Employees</div>
+                            <div class="many-users"><i class="fas fa-user-circle"></i></div>
+                        </div>
+                        <div class="line">
+                            <div class="icon"></div>
+                            <div class="right-text">
+                                <span>View all employees</span>
+                                <img src="images/Vector.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Role details ends here-->
+        </div>
+        <!--Right panel ends here-->
+    </div>
+    <script src="common_script.js"></script>
+</body>
+
+</html>
