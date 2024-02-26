@@ -79,7 +79,7 @@ function addEmployees(employees) {
             optionElement.textContent = option.text;
             optionElement.value = option.value;
             optionElement.style.borderRadius = "5px";
-            optionElement.style.backgroundColor ='white';
+            optionElement.style.backgroundColor = 'white';
             selectElement.appendChild(optionElement);
 
         });
@@ -159,6 +159,12 @@ document.body.addEventListener('click', function (event) {
 
 function toggleDropdown(selectBox) {
     var dropdownContent = selectBox.nextElementSibling;
+    var allDropdowns = document.querySelectorAll('.dropdown-content');
+    allDropdowns.forEach(function (dropdown) {
+        if (dropdown !== dropdownContent) {
+            dropdown.style.display = 'none';
+        }
+    });
     dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
 }
 
