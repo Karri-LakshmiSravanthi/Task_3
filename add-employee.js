@@ -8,7 +8,7 @@ document.getElementById('uploadInput').addEventListener('change', function () {
         const reader = new FileReader();
         reader.onload = function (event) {
             const imgData = event.target.result;
-            const imgElement = document.getElementById('ppImg');
+            const imgElement = document.getElementById('profileImage');
             imgElement.src = imgData;
         }
         reader.readAsDataURL(file);
@@ -128,7 +128,7 @@ function addEmployee() {
     var joindt = document.getElementById('joindt').value;
     var dob = document.getElementById("dob").value;
     var phone = document.getElementById("phone").value;
-    var image = document.getElementById("ppImg").src;
+    var image = document.getElementById("profileImage").src;
     var manager = document.querySelector(".managerName").value;
     var project = document.querySelector(".projectName").value;
 
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('role').value = editEmployeeData.role;
         document.getElementById('dob').value = editEmployeeData.dob;
         document.getElementById('phone').value = editEmployeeData.phone;
-        document.getElementById('ppImg').src = editEmployeeData.profile;
+        document.getElementById('profileImage').src = editEmployeeData.profile;
         document.querySelector(".managerName").value = editEmployeeData.managerName;
         document.querySelector(".projectName").value = editEmployeeData.projectName;
 

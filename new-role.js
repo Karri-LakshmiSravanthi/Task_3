@@ -5,7 +5,7 @@ function searchFunc() {
     searchContainers.forEach(function (container) {
         var searchInput = container.querySelector('.managerName, .projectName');
         var dropdownContent = container.querySelector('.dropdown-content');
-        var checkboxes = container.querySelectorAll('.option-checkbox');
+        var optionCheckboxes = container.querySelectorAll('.option-checkbox');
 
         searchInput.addEventListener('click', function (event) {
             if (currentDropdown === dropdownContent) {
@@ -31,10 +31,10 @@ function searchFunc() {
             });
         });
 
-        checkboxes.forEach(function (checkbox) {
+        optionCheckboxes.forEach(function (checkbox) {
             checkbox.addEventListener('change', function () {
                 var selectedNames = [];
-                checkboxes.forEach(function (checkbox) {
+                optionCheckboxes.forEach(function (checkbox) {
                     if (checkbox.checked) {
                         var name = checkbox.closest('.option').querySelector('.name').textContent;
                         selectedNames.push(name);

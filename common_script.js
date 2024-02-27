@@ -1,11 +1,11 @@
 var sb_var = true;
 
 function openSidebar() {
-    document.getElementById("leftPanel1").style.width = "17%";
-    document.getElementById("rightPanel1").style.width = "82%";
+    document.getElementById("leftPanel").style.width = "17%";
+    document.getElementById("rightPanel").style.width = "82%";
     const sb = document.querySelector(".left-panel");
     sb.style.display = "block";
-    const icons = document.querySelector("#leftPanel2");
+    const icons = document.querySelector("#leftPanelIcons");
     icons.style.display="none";
     rotateImage();
 }
@@ -20,12 +20,12 @@ let rotateImage = () => {
 
 function closeSidebar() {
     const sb = document.querySelector(".left-panel");
-    document.getElementById("leftPanel1").style.width = "0%";
+    document.getElementById("leftPanel").style.width = "0%";
     sb.style.display = "none";
-    const icons = document.querySelector("#leftPanel2");
-    document.getElementById("leftPanel2").style.width = "4%";
+    const icons = document.querySelector("#leftPanelIcons");
+    document.getElementById("leftPanelIcons").style.width = "4%";
     icons.style.display = "block";
-    document.getElementById("rightPanel1").style.width = "96%";
+    document.getElementById("rightPanel").style.width = "96%";
     rotateImage();
 }
 

@@ -32,22 +32,22 @@ html {
     position: relative;
 }
 
-#leftPanel2{
+#leftPanelIcons{
     width:5%;
 }
 
-#leftPanel2 .side-navbar{
+#leftPanelIcons .side-navbar{
     display: block;
 }
 
-#leftPanel2 .side-navbar img
+#leftPanelIcons .side-navbar img
 {
     width: 1.5rem;
     height: 1.5rem;
     margin: 1rem;
 }
 
-#leftPanel2{
+#leftPanelIcons{
     display: none;
 }
 

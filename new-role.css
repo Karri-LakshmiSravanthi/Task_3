@@ -143,14 +143,14 @@ input[type="checkbox"]:checked {
     margin-right: 5px;
 }
 
-.btn {
+.bottomButtons {
     width: 100%;
     display: flex;
     justify-content: flex-end;
     margin-top: 10rem;
 }
 
-.btn button {
+.bottomButtons button {
     padding: 0.5rem 2rem;
     margin: 2rem 0.5rem;
     border-radius: 4px;
@@ -158,12 +158,12 @@ input[type="checkbox"]:checked {
     cursor: pointer;
 }
 
-.btn .cancel {
+.bottomButtons .cancel-btn {
     background-color: rgb(255, 209, 209);
     color: red;
 }
 
-.btn .role {
+.bottomButtons .role-btn {
     background-color: rgb(251, 57, 57);
     color: white;
 }

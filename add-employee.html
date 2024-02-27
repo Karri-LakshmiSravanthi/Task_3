@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <!--Left panel starts here-->
-        <div class="left-panel" id="leftPanel1">
+        <div class="left-panel" id="leftPanel">
             <div class="logo-area">
                 <div class="logo">
                     <img src="images/TezoLogo.svg" alt="logo">
@@ -67,7 +67,7 @@
             </div>
         </div>
 
-        <div id="leftPanel2">
+        <div id="leftPanelIcons">
             <div class="side-navbar">
                 <img src="images/TezoLogoSymbol.png" alt="">
                 <img src="images/Horizontal nav/Dashboard.svg" alt="">
@@ -79,7 +79,7 @@
         <!--Left panel ends here-->
 
         <!--Right panel starts here-->
-        <div class="right-panel" id="rightPanel1">
+        <div class="right-panel" id="rightPanel">
             <!--Search panel Starts here-->
             <div class="handle">
                 <img src="images/handle.png" alt="Image" onclick="SideBar()" class="handle-icon">
@@ -109,9 +109,10 @@
                 <div class="form-wrapper">
                     <form id="addForm">
                         <div class="profile-pic">
-                            <img src="images/profile.jpg" alt="" id="ppImg">
-                            <button type="button" id="uploadButton"><input type="file" id="uploadInput" accept="image/*"
-                                    style="display: none;">Upload Profile Picture</button>
+                            <img src="images/profile.jpg" alt="" id="profileImage">
+                            <button type="button" id="uploadButton">
+                                <input type="file" id="uploadInput" accept="image/*"style="display: none;">Upload Profile Picture
+                            </button>
                         </div>
                         <p><b>Personal Information</b></p>
                         <div class="emp-no">
@@ -327,8 +328,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="btn">
-                            <button class="cancel" onclick="refresh()"><a href="employees.html">Cancel</a></button>
+                        <div class="bottomButtons">
+                            <button class="cancel-btn" onclick="refresh()"><a href="employees.html">Cancel</a></button>
                             <button class="add-btn" type="button" onclick="validateForm()" id="update-btn">Add
                                 Employee</button>
                         </div>

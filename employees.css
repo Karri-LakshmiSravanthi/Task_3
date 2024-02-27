@@ -124,7 +124,7 @@
     display: flex;
 }
 
-.multiselect {
+.multiselect-dropdown {
     position: relative;
     width: 170px;
     font-family: Arial, sans-serif;
@@ -145,11 +145,11 @@
     width: 95%;
 }
 
-.arrow .arrow_i {
+.arrow .arrowIcon {
     justify-content: flex-end;
 }
 
-.dropdown-content {
+.multiselect-dropdown-content {
     display: none;
     position: absolute;
     background-color: #ffff;
@@ -159,17 +159,18 @@
     overflow-y: auto;
 }
 
-.dropdown-content label {
+.multiselect-dropdown-content label {
     display: block;
     padding: 5px;
 }
 
-.dropdown-content label:hover {
+.multiselect-dropdown-content label:hover {
     background-color: #b0b0b0;
     font-weight: bold;
 }
 
 /* multi select dropdown ends here */
+
 
 .right-filter button {
     margin: 1rem 0.4rem;
@@ -301,6 +302,12 @@ table .th-icons i {
 .nameCell{
     display: flex;
     align-items: center;
+}
+
+.rightFilterbtns{
+    display: flex !important;
+    justify-content: flex-end;
+
 }
 
 .dynamicProfile{

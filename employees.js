@@ -26,24 +26,24 @@ function exportToExcel() {
 function addEmployees(employees) {
     var tableBody = document.getElementById('employeeList');
     employees.forEach(function (employee, index) {
-        var row = tableBody.insertRow();
-        var chboxC = row.insertCell(0);
-        chboxC.class = "employee-checkbox";
-        var nameC = row.insertCell(1);
-        nameC.classList.add('nameCell');
-        var locationC = row.insertCell(2);
-        var deptC = row.insertCell(3);
-        var roleC = row.insertCell(4);
-        var empnoC = row.insertCell(5);
-        var btnC = row.insertCell(6);
-        var joindtC = row.insertCell(7);
-        var ellipsis = row.insertCell(8);
+        var addEmpRow = tableBody.insertRow();
+        var rowCheckBox = addEmpRow.insertCell(0);
+        rowCheckBox.class = "employee-checkbox";
+        var name = addEmpRow.insertCell(1);
+        name.classList.add('nameCell');
+        var location = addEmpRow.insertCell(2);
+        var dept = addEmpRow.insertCell(3);
+        var role = addEmpRow.insertCell(4);
+        var empno = addEmpRow.insertCell(5);
+        var empStatus = addEmpRow.insertCell(6);
+        var joinDt = addEmpRow.insertCell(7);
+        var ellipsis = addEmpRow.insertCell(8);
         ellipsis.id = "ellipsisid";
 
         var checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        chboxC.appendChild(checkbox);
-        nameC.innerHTML = `
+        rowCheckBox.appendChild(checkbox);
+        name.innerHTML = `
             <div>
                 <img src="${employee.image}" alt="Img" class="dynamicProfile">
             </div>
@@ -53,56 +53,56 @@ function addEmployees(employees) {
                 <p>${employee.email}</p>
             </div>
         `;
-        locationC.innerHTML = employee.location;
-        deptC.innerHTML = employee.department;
-        roleC.innerHTML = employee.role;
-        empnoC.innerHTML = employee.empno;
+        location.innerHTML = employee.location;
+        dept.innerHTML = employee.department;
+        role.innerHTML = employee.role;
+        empno.innerHTML = employee.empno;
         var button = document.createElement('button')
         button.innerHTML = "Active";
         button.classList.add('statusBtn');
-        btnC.appendChild(button);
-        joindtC.innerHTML = employee.joindt;
+        empStatus.appendChild(button);
+        joinDt.innerHTML = employee.joindt;
 
 
         // Create a select element
-        var selectElement = document.createElement('select');
-        selectElement.id = 'mySelect';
-        var options = [
+        var actionSelection = document.createElement('select');
+        actionSelection.id = 'mySelect';
+        var actionOptions = [
             { text: '.....' },
             { text: 'Details', value: 'view details' },
             { text: 'Edit', value: 'edit' },
             { text: 'Delete', value: 'delete' }
         ];
         // Create and append option elements to the select element
-        options.forEach(function (option) {
-            optionElement = document.createElement('option');
-            optionElement.textContent = option.text;
-            optionElement.value = option.value;
-            optionElement.style.borderRadius = "5px";
-            optionElement.style.backgroundColor = 'white';
-            selectElement.appendChild(optionElement);
+        actionOptions.forEach(function (option) {
+            ellipsisOptions = document.createElement('option');
+            ellipsisOptions.textContent = option.text;
+            ellipsisOptions.value = option.value;
+            ellipsisOptions.style.borderRadius = "5px";
+            ellipsisOptions.style.backgroundColor = 'white';
+            actionSelection.appendChild(ellipsisOptions);
 
         });
-        ellipsis.appendChild(selectElement);
+        ellipsis.appendChild(actionSelection);
         // Changing background color of the ellipsis
-        row.addEventListener('mouseenter', function () {
-            selectElement.style.backgroundColor = 'rgb(250, 217, 217)';
+        addEmpRow.addEventListener('mouseenter', function () {
+            actionSelection.style.backgroundColor = 'rgb(250, 217, 217)';
         });
-        row.addEventListener('mouseleave', function () {
-            selectElement.style.backgroundColor = ''; // Revert to default
+        addEmpRow.addEventListener('mouseleave', function () {
+            actionSelection.style.backgroundColor = ''; // Revert to default
         });
         //Ends here
 
-        selectElement.addEventListener('change', function (event) {
+        actionSelection.addEventListener('change', function (event) {
             // Get the selected value
-            var selectedValue = event.target.value;
+            var selectedAction = event.target.value;
             // Check if the selected value is 'delete'
-            if (selectedValue === 'delete') {
+            if (selectedAction === 'delete') {
                 if (confirm("Are you sure, you want to delete this row?")) {
-                    var row = selectElement.closest('tr');
-                    var emp = row.cells[5].textContent;
+                    var selectedRow = actionSelection.closest('tr');
+                    var emp = selectedRow.cells[5].textContent;
                     console.log(emp);
-                    row.remove();
+                    selectedRow.remove();
                     // // Remove corresponding data from local storage
                     var employees = JSON.parse(localStorage.getItem('employees')) || [];
                     var index = employees.findIndex(function (employee) {
@@ -113,9 +113,9 @@ function addEmployees(employees) {
                 }
             }
 
-            if (selectedValue === 'edit') {
-                var row = selectElement.closest('tr');
-                var emp = row.cells[5].textContent;
+            if (selectedAction === 'edit') {
+                var selectedRow = actionSelection.closest('tr');
+                var emp = selectedRow.cells[5].textContent;
                 const rowData = {
                     empno: employee.empno,
                     fname: employee.fname,
@@ -149,9 +149,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Multi select dropdown starts here
 document.body.addEventListener('click', function (event) {
-    var dropdowns = document.querySelectorAll('.dropdown-content');
-    dropdowns.forEach(function (dropdown) {
-        if (dropdown.style.display === 'block' && !event.target.closest('.multiselect')) {
+    var multiselectDropdowns = document.querySelectorAll('.multiselect-dropdown-content');
+    multiselectDropdowns.forEach(function (dropdown) {
+        if (dropdown.style.display === 'block' && !event.target.closest('.multiselect-dropdown')) {
             dropdown.style.display = 'none';
         }
     });
@@ -159,8 +159,8 @@ document.body.addEventListener('click', function (event) {
 
 function toggleDropdown(selectBox) {
     var dropdownContent = selectBox.nextElementSibling;
-    var allDropdowns = document.querySelectorAll('.dropdown-content');
-    allDropdowns.forEach(function (dropdown) {
+    var multiselectDropdownsContent = document.querySelectorAll('.multiselect-dropdown-content');
+    multiselectDropdownsContent.forEach(function (dropdown) {
         if (dropdown !== dropdownContent) {
             dropdown.style.display = 'none';
         }
@@ -168,14 +168,17 @@ function toggleDropdown(selectBox) {
     dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
 }
 
-function updateSelectedItems(checkbox) {
-    var selectedItemsDisplay = checkbox.closest('.multiselect').querySelector('.selected');
-    var selectedOptions = Array.from(checkbox.closest('.multiselect').querySelectorAll('input[type="checkbox"]:checked')).map(function (checkbox) {
+function updateSelectedItems(multiselectCheckbox) {
+    var filterName = multiselectCheckbox.closest('.multiselect-dropdown').getAttribute('data-filter');
+
+    var selectedItemsDisplay = multiselectCheckbox.closest('.multiselect-dropdown').querySelector('.selected');
+    var selectedOptions = Array.from(multiselectCheckbox.closest('.multiselect-dropdown').querySelectorAll('input[type="checkbox"]:checked')).map(function (checkbox) {
         return checkbox.value;
     });
-    var name = selectedItemsDisplay.textContent.match(/\S+/)[0];
-    var countText = (selectedOptions.length > 0 ? selectedOptions.length.toString() + ' selected' : '0 selected');
-    selectedItemsDisplay.textContent = name + ': ' + countText;
+    selectedItemsDisplay.textContent = filterName + ': ' + (selectedOptions.length > 0 ? selectedOptions.length : '0') + ' selected';    filterarray[filterName] = selectedOptions;
+
+    var filterButtons = document.getElementById('right-filter');
+    filterButtons.classList.add('rightFilterbtns');  
 }
 //ends here  
 
@@ -183,36 +186,18 @@ function updateSelectedItems(checkbox) {
 
 
 
-// Filtering based on dropdowns
+// Filtering starts here
 var employees = JSON.parse(localStorage.getItem('employees')) || [];
 let filterarray = {
     Status: [],
     Department: [],
     Location: []
 };
-function updateSelectedItems(checkbox) {
-    var value = checkbox.value;
-    var filterName = checkbox.closest('.multiselect').getAttribute('data-filter');
-    var selectedItemsDisplay = checkbox.closest('.multiselect').querySelector('.selected');
-    var selectedOptions = Array.from(checkbox.closest('.multiselect').querySelectorAll('input[type="checkbox"]:checked')).map(function (checkbox) {
-        return checkbox.value;
-    });
-    selectedItemsDisplay.textContent = filterName + ': ' + (selectedOptions.length > 0 ? selectedOptions.length : '0') + ' selected';
-    filterarray[filterName] = selectedOptions;
-    console.log(filterarray);
-    var fillbtn = document.getElementById('right-filter');
-    fillbtn.classList.add('rightFilterbtns');
-    fillbtn.style.display = "flex";
-    fillbtn.style.justifyContent = "flex-end";
-}
-
-
-
 
 // Filtering based on buttons
-var buttons = document.querySelectorAll(".letter-btn");
+var letterButtons = document.querySelectorAll(".letter-btn");
 var previousButton = null;
-buttons.forEach(function (button) {
+letterButtons.forEach(function (button) {
     button.addEventListener("click", function () {
         buttonText = button.innerText;
         // Restore styles of the previously clicked button
@@ -229,8 +214,6 @@ buttons.forEach(function (button) {
     });
 });
 // Ends here
-
-
 
 var startsWithLetter;
 var statusMatch = [];
@@ -249,21 +232,24 @@ function displayresult() {
 
     if (results.length == 0) {
         document.getElementById('employeeList').innerHTML = "<tr><td colspan='6'>No matches found</td></tr>";
+        var filterImg = document.getElementById('filter-img');
+        filterImg.style.color = "black";
     }
     else {
         document.getElementById('employeeList').innerHTML = "";
-        console.log(results);
+        var filterImg = document.getElementById('filter-img');
+        filterImg.style.color = "red";
         addEmployees(results);
-        var checkboxes = document.querySelectorAll('.table-wrapper input[type="checkbox"]');
-        checkboxes.forEach(function (checkbox) {
+        var tableCheckboxes = document.querySelectorAll('.table-wrapper input[type="checkbox"]');
+        tableCheckboxes.forEach(function (checkbox) {
             checkbox.addEventListener('click', function () {
-                setupCheckboxListeners()
+                tableCheckboxListeners()
             });
         });
-        handleSelectAllCheckbox();
+        tableHeadCheckbox();
     }
 }
-//Ends here
+// Filtering Ends here
 
 
 
@@ -279,17 +265,17 @@ function displayTable() {
 
     buttonText = "";
 
-    var fillbtn = document.getElementById('right-filter');
-    fillbtn.style.display = "none";
+    var filterButtons = document.getElementById('right-filter');
+    filterButtons.style.display = "none";
 
-    var filterI = document.getElementById('filter-i');
-    filterI.style.color = "black";
+    var filterImg = document.getElementById('filter-img');
+    filterImg.style.color = "black";
 
     var tableHeader = document.querySelectorAll(".th-content");
-    tableHeader.forEach(function (header) {
-        var column = header.getAttribute('data-column');
+    tableHeader.forEach(function (eachColumnHead) {
+        var column = eachColumnHead.getAttribute('data-column');
         var sortOrder = sortOrders[column] || null;
-        var icon = header.querySelector('.th-icons i');
+        var icon = eachColumnHead.querySelector('.th-icons i');
 
         if (sortOrder === 'ascending') {
             icon.className = 'fas fa-caret-up';
@@ -303,19 +289,19 @@ function displayTable() {
     document.getElementById('employeeList').innerHTML = "";
     addEmployees(employees);
 
-    let buttonsBg = document.querySelectorAll(".letter-btn");
-    buttonsBg.forEach(function (button) {
+    let letterButtonsBg = document.querySelectorAll(".letter-btn");
+    letterButtonsBg.forEach(function (button) {
         button.style.backgroundColor = "";
         button.style.color = "black";
     });
 
-    var selectedItemsDisplay = document.querySelectorAll('.multiselect .selected');
+    var selectedItemsDisplay = document.querySelectorAll('.multiselect-dropdown .selected');
     selectedItemsDisplay.forEach(function (display) {
         display.textContent = display.textContent.split(':')[0];
     });
 
-    var checkboxes = document.querySelectorAll('.multiselect input[type="checkbox"]');
-    checkboxes.forEach(function (checkbox) {
+    var multiselectCheckboxes = document.querySelectorAll('.multiselect-dropdown input[type="checkbox"]');
+    multiselectCheckboxes.forEach(function (checkbox) {
         checkbox.checked = false;
     });
 
@@ -327,16 +313,15 @@ function displayTable() {
 
 
 // deleting multiple rows using checkboxes in the each row.
-
 function deleteSelectedRows() {
     if (confirm("Are you sure, you want to delete the data?")) {
-        var checkboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked');
-        checkboxes.forEach(function (checkbox) {
+        var tBodyCheckboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked');
+        tBodyCheckboxes.forEach(function (checkbox) {
             if (checkbox.checked) {
                 // Delete the row associated with the checked checkbox
-                var row = checkbox.closest('tr');
-                var emp = row.cells[5].textContent;
-                row.remove();
+                var selectedRow = checkbox.closest('tr');
+                var emp = selectedRow.cells[5].textContent;
+                selectedRow.remove();
                 // Remove corresponding data from local storage
                 var employees = JSON.parse(localStorage.getItem('employees')) || [];
                 var index = employees.findIndex(function (employee) {
@@ -349,12 +334,11 @@ function deleteSelectedRows() {
     }
 }
 
-// To display the delete button 
-function setupCheckboxListeners() {
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+// To display the delete button when checkboxes in the table were selected. 
+function tableCheckboxListeners() {
+    var tableCheckboxes = document.querySelectorAll('.table-wrapper input[type="checkbox"]');
     var deleteButton = document.getElementById('deleteButton');
-
-    checkboxes.forEach(function (checkbox) {
+    tableCheckboxes.forEach(function (checkbox) {
         checkbox.addEventListener('change', function () {
             var checkedCheckboxes = document.querySelectorAll('.table-wrapper input[type="checkbox"]:checked');
             if (checkedCheckboxes.length > 0) {
@@ -365,20 +349,20 @@ function setupCheckboxListeners() {
         });
     });
 }
-document.addEventListener('DOMContentLoaded', setupCheckboxListeners);
+document.addEventListener('DOMContentLoaded', tableCheckboxListeners);
 
-function handleSelectAllCheckbox() {
-    var selectAllCheckbox = document.getElementById('selectAllCheckbox');
-    var tbodyCheckboxes = document.querySelectorAll('tbody input[type="checkbox"]');
 
-    selectAllCheckbox.addEventListener('click', function () {
-        tbodyCheckboxes.forEach(function (checkbox) {
-            checkbox.checked = selectAllCheckbox.checked;
+function tableHeadCheckbox() {
+    var tHeadCheckbox = document.getElementById('selectAllCheckbox');
+    var tBodyCheckboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+    tHeadCheckbox.addEventListener('click', function () {
+        tBodyCheckboxes.forEach(function (checkbox) {
+            checkbox.checked = tHeadCheckbox.checked;
         });
     });
 }
 
-document.addEventListener('DOMContentLoaded', handleSelectAllCheckbox);
+document.addEventListener('DOMContentLoaded', tableHeadCheckbox);
 // ends here
 
 
@@ -388,9 +372,9 @@ document.addEventListener('DOMContentLoaded', handleSelectAllCheckbox);
 // Ascending and descending order filtering
 var sortOrders = {};
 document.addEventListener('DOMContentLoaded', function () {
-    var headers = document.querySelectorAll('.th-content');
+    var theadColumns = document.querySelectorAll('.th-content');
     var sortOrders = {}; // Keep track of sort order for each column
-    headers.forEach(function (header) {
+    theadColumns.forEach(function (header) {
         header.addEventListener('click', function () {
             var column = header.getAttribute('data-column');
             sortTable(column);
@@ -410,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return sortOrder === 'ascending' ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
         });
 
-        tbody.innerHTML = ''; // Clear the tbody
+        tbody.innerHTML = '';
 
         rows.forEach(function (row) {
             tbody.appendChild(row);
@@ -418,15 +402,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Toggle sort order for the current column
         sortOrders[column] = sortOrder === 'ascending' ? 'descending' : 'ascending';
-
         // Update font awesome icon based on sort order
         updateSortIcon(column, sortOrder);
     }
 
     function getColumnIndex(columnName) {
-        var headers = document.querySelectorAll('.th-content');
-        for (var i = 0; i < headers.length; i++) {
-            if (headers[i].getAttribute('data-column') === columnName) {
+        var theadColumns = document.querySelectorAll('.th-content');
+        for (var i = 0; i < theadColumns.length; i++) {
+            if (theadColumns[i].getAttribute('data-column') === columnName) {
                 return i + 1;
             }
         }
@@ -437,7 +420,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var header = document.querySelector('.th-content[data-column="' + column + '"] .th-icons i');
         header.style.display = "none";
 
-        // Add appropriate font awesome class based on sort order
         if (sortOrder === 'ascending') {
             header.outerHTML = `<i class="fas fa-caret-up"></i>`;
             header.style.display = "block";
