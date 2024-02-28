@@ -32,36 +32,36 @@ function addEmployees(employees) {
         var name = addEmpRow.insertCell(1);
         name.classList.add('nameCell');
         var location = addEmpRow.insertCell(2);
-        var dept = addEmpRow.insertCell(3);
+        var department = addEmpRow.insertCell(3); // department
         var role = addEmpRow.insertCell(4);
         var empno = addEmpRow.insertCell(5);
         var empStatus = addEmpRow.insertCell(6);
-        var joinDt = addEmpRow.insertCell(7);
-        var ellipsis = addEmpRow.insertCell(8);
-        ellipsis.id = "ellipsisid";
+        var joinDate = addEmpRow.insertCell(7);
+        var actionsMenu = addEmpRow.insertCell(8); //menu
+        actionsMenu.id = "ellipsisid";
 
-        var checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        rowCheckBox.appendChild(checkbox);
+        var selectEmployee = document.createElement('input'); //selectEmployee
+        selectEmployee.type = 'checkbox';
+        rowCheckBox.appendChild(selectEmployee);
         name.innerHTML = `
             <div>
                 <img src="${employee.image}" alt="Img" class="dynamicProfile">
             </div>
             <div class="userDetails">
-                <span>${employee.fname}</span>
-                <span>${employee.lname}</span>
+                <span>${employee.firstName}</span>
+                <span>${employee.lastName}</span>
                 <p>${employee.email}</p>
             </div>
         `;
         location.innerHTML = employee.location;
-        dept.innerHTML = employee.department;
+        department.innerHTML = employee.department;
         role.innerHTML = employee.role;
         empno.innerHTML = employee.empno;
-        var button = document.createElement('button')
-        button.innerHTML = "Active";
-        button.classList.add('statusBtn');
-        empStatus.appendChild(button);
-        joinDt.innerHTML = employee.joindt;
+        var statusButton = document.createElement('button')
+        statusButton.innerHTML = "Active";
+        statusButton.classList.add('statusBtn');
+        empStatus.appendChild(statusButton);
+        joinDate.innerHTML = employee.joinDate;
 
 
         // Create a select element
@@ -83,20 +83,19 @@ function addEmployees(employees) {
             actionSelection.appendChild(ellipsisOptions);
 
         });
-        ellipsis.appendChild(actionSelection);
+        actionsMenu.appendChild(actionSelection);
         // Changing background color of the ellipsis
         addEmpRow.addEventListener('mouseenter', function () {
             actionSelection.style.backgroundColor = 'rgb(250, 217, 217)';
         });
         addEmpRow.addEventListener('mouseleave', function () {
-            actionSelection.style.backgroundColor = ''; // Revert to default
+            actionSelection.style.backgroundColor = '';
         });
         //Ends here
 
         actionSelection.addEventListener('change', function (event) {
             // Get the selected value
             var selectedAction = event.target.value;
-            // Check if the selected value is 'delete'
             if (selectedAction === 'delete') {
                 if (confirm("Are you sure, you want to delete this row?")) {
                     var selectedRow = actionSelection.closest('tr');
@@ -118,14 +117,14 @@ function addEmployees(employees) {
                 var emp = selectedRow.cells[5].textContent;
                 const rowData = {
                     empno: employee.empno,
-                    fname: employee.fname,
-                    lname: employee.lname,
+                    firstName: employee.firstName,
+                    lastName: employee.lastName,
                     email: employee.email,
                     location: employee.location,
                     department: employee.department,
                     role: employee.role,
-                    joindt: employee.joindt,
-                    dob: employee.dob,
+                    joinDate: employee.joinDate,
+                    dateOfBirth: employee.dateOfBirth,
                     phone: employee.phone,
                     profile: employee.image,
                     managerName: employee.manager,
@@ -158,11 +157,11 @@ document.body.addEventListener('click', function (event) {
 });
 
 function toggleDropdown(selectBox) {
-    var dropdownContent = selectBox.nextElementSibling;
+    var dropdownContent = selectBox.nextElementSibling; //data
     var multiselectDropdownsContent = document.querySelectorAll('.multiselect-dropdown-content');
-    multiselectDropdownsContent.forEach(function (dropdown) {
-        if (dropdown !== dropdownContent) {
-            dropdown.style.display = 'none';
+    multiselectDropdownsContent.forEach(function (dropdownValue) { //value
+        if (dropdownValue !== dropdownContent) {
+            dropdownValue.style.display = 'none';
         }
     });
     dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
@@ -171,11 +170,11 @@ function toggleDropdown(selectBox) {
 function updateSelectedItems(multiselectCheckbox) {
     var filterName = multiselectCheckbox.closest('.multiselect-dropdown').getAttribute('data-filter');
 
-    var selectedItemsDisplay = multiselectCheckbox.closest('.multiselect-dropdown').querySelector('.selected');
+    var multiSelectedItems = multiselectCheckbox.closest('.multiselect-dropdown').querySelector('.selected'); //selectedItems
     var selectedOptions = Array.from(multiselectCheckbox.closest('.multiselect-dropdown').querySelectorAll('input[type="checkbox"]:checked')).map(function (checkbox) {
         return checkbox.value;
     });
-    selectedItemsDisplay.textContent = filterName + ': ' + (selectedOptions.length > 0 ? selectedOptions.length : '0') + ' selected';    filterarray[filterName] = selectedOptions;
+    multiSelectedItems.textContent = filterName + ': ' + (selectedOptions.length > 0 ? selectedOptions.length : '0') + ' selected';    filterarray[filterName] = selectedOptions;
 
     var filterButtons = document.getElementById('right-filter');
     filterButtons.classList.add('rightFilterbtns');  
@@ -199,7 +198,7 @@ var letterButtons = document.querySelectorAll(".letter-btn");
 var previousButton = null;
 letterButtons.forEach(function (button) {
     button.addEventListener("click", function () {
-        buttonText = button.innerText;
+        filterButtonText = button.innerText;
         // Restore styles of the previously clicked button
         if (previousButton !== null) {
             previousButton.style.backgroundColor = "";
@@ -219,11 +218,11 @@ var startsWithLetter;
 var statusMatch = [];
 var locationMatch = [];
 var departmentMatch = [];
-var buttonText = "";
+var filterButtonText = ""; // change this
 function displayresult() {
     let results = employees.filter(ele => {
-        let name = ele.fname.toUpperCase();
-        startsWithLetter = buttonText == "" || name.startsWith(buttonText);
+        let name = ele.firstName.toUpperCase();
+        startsWithLetter = filterButtonText == "" || name.startsWith(filterButtonText);
         statusMatch = filterarray.Status.length === 0 || filterarray.Status.includes(ele.status);
         locationMatch = filterarray.Location.length === 0 || filterarray.Location.includes(ele.location);
         departmentMatch = filterarray.Department.length === 0 || filterarray.Department.includes(ele.department);
@@ -263,7 +262,7 @@ function displayTable() {
         Location: []
     };
 
-    buttonText = "";
+    filterButtonText = "";
 
     var filterButtons = document.getElementById('right-filter');
     filterButtons.style.display = "none";
@@ -289,20 +288,20 @@ function displayTable() {
     document.getElementById('employeeList').innerHTML = "";
     addEmployees(employees);
 
-    let letterButtonsBg = document.querySelectorAll(".letter-btn");
-    letterButtonsBg.forEach(function (button) {
-        button.style.backgroundColor = "";
-        button.style.color = "black";
+    let filterButtonsColor = document.querySelectorAll(".letter-btn");//change bg
+    filterButtonsColor.forEach(function (letterButton) {
+        letterButton.style.backgroundColor = "";
+        letterButton.style.color = "black";
     });
 
-    var selectedItemsDisplay = document.querySelectorAll('.multiselect-dropdown .selected');
-    selectedItemsDisplay.forEach(function (display) {
+    var multiSelectedItems = document.querySelectorAll('.multiselect-dropdown .selected');
+    multiSelectedItems.forEach(function (display) {
         display.textContent = display.textContent.split(':')[0];
     });
 
     var multiselectCheckboxes = document.querySelectorAll('.multiselect-dropdown input[type="checkbox"]');
-    multiselectCheckboxes.forEach(function (checkbox) {
-        checkbox.checked = false;
+    multiselectCheckboxes.forEach(function (multiselectCheckbox) {
+        multiselectCheckbox.checked = false;
     });
 
 }

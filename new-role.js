@@ -1,29 +1,29 @@
-function searchFunc() {
+function searchFunction() {
     var currentDropdown = null; // Variable to keep track of the currently open dropdown
     var searchContainers = document.querySelectorAll('.sec');
 
     searchContainers.forEach(function (container) {
-        var searchInput = container.querySelector('.managerName, .projectName');
-        var dropdownContent = container.querySelector('.dropdown-content');
+        var searchField = container.querySelector('.managerName, .projectName');
+        var searchFieldDropdownContent = container.querySelector('.dropdown-content');
         var optionCheckboxes = container.querySelectorAll('.option-checkbox');
 
-        searchInput.addEventListener('click', function (event) {
-            if (currentDropdown === dropdownContent) {
-                dropdownContent.style.display = 'none';
+        searchField.addEventListener('click', function (event) {
+            if (currentDropdown === searchFieldDropdownContent) {
+                searchFieldDropdownContent.style.display = 'none';
                 currentDropdown = null;
             } else {
                 if (currentDropdown) {
                     currentDropdown.style.display = 'none';
                 }
-                dropdownContent.style.display = 'block';
-                currentDropdown = dropdownContent; // Update the currently open dropdown
+                searchFieldDropdownContent.style.display = 'block';
+                currentDropdown = searchFieldDropdownContent; // Update the currently open dropdown
             }
             event.stopPropagation();
         });
 
-        searchInput.addEventListener("input", function () {
+        searchField.addEventListener("input", function () {
             var input = this.value.trim().toUpperCase();
-            var options = dropdownContent.querySelectorAll(".option");
+            var options = searchFieldDropdownContent.querySelectorAll(".option");
 
             options.forEach(function (option) {
                 var name = option.querySelector(".name").textContent.trim().toUpperCase();
@@ -40,10 +40,10 @@ function searchFunc() {
                         selectedNames.push(name);
                     }
                 });
-                searchInput.value = selectedNames.join(', ');
+                searchField.value = selectedNames.join(', ');
             });
         });
-        dropdownContent.addEventListener('click', function (event) {
+        searchFieldDropdownContent.addEventListener('click', function (event) {
             event.stopPropagation(); // Prevent clicks within the dropdown from bubbling to body
         });
     });
@@ -58,5 +58,5 @@ function searchFunc() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    searchFunc();
+    searchFunction();
 });

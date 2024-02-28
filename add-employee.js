@@ -34,10 +34,10 @@ function clearErrorMessage(fieldId) {
 
 function validateForm() {
     var empno = document.getElementById('empno').value;
-    var fname = document.getElementById('fname').value;
-    var lname = document.getElementById('lname').value;
+    var firstName = document.getElementById('fname').value;
+    var lastName = document.getElementById('lname').value;
     var email = document.getElementById('email').value;
-    var joindt = document.getElementById('joindt').value;
+    var joinDate = document.getElementById('joindt').value;
     var phone = document.getElementById('phone').value;
     var hasError = false; // Variable to track if any error occurred
 
@@ -58,24 +58,23 @@ function validateForm() {
         }
     }
 
-    if (fname === '') {
+    if (firstName === '') {
         document.getElementById('fname-error').innerText = 'Please enter First Name';
         hasError = true;
     } else {
         var fnamePattern = /^[a-zA-Z ]+$/;
-        if (!fnamePattern.test(fname)) {
+        if (!fnamePattern.test(firstName)) {
             document.getElementById('fname-error').innerText = 'First Name must contain only letters and spaces';
             hasError = true;
         }
     }
 
-    if (lname === '') {
+    if (lastName === '') {
         document.getElementById('lname-error').innerText = 'Please enter Last Name';
         hasError = true;
     } else {
-        // Regular expression for first name validation
         var lnamePattern = /^[a-zA-Z ]+$/;
-        if (!lnamePattern.test(lname)) {
+        if (!lnamePattern.test(lastName)) {
             document.getElementById('lname-error').innerText = 'Last Name must contain only letters and spaces';
             hasError = true;
         }
@@ -92,7 +91,7 @@ function validateForm() {
         }
     }
 
-    if (joindt === '') {
+    if (joinDate === '') {
         document.getElementById('joindt-error').innerText = 'Please enter Joining Date';
         hasError = true;
     }
@@ -100,7 +99,7 @@ function validateForm() {
 
     var phonePattern = /^\d{10}$/;
     if (phone && !phonePattern.test(phone)) {
-        document.getElementById('phone-error').innerText = 'Phone Number must contain only digits';
+        document.getElementById('phone-error').innerText = 'Phone Number must contain only digits of length 10';
         hasError = true;
     }
 
@@ -117,16 +116,16 @@ function validateForm() {
 
 // Getting data from form and adding it into localStorage
 function addEmployee() {
-    var fname = document.getElementById('fname').value;
-    var lname = document.getElementById('lname').value;
+    var firstName = document.getElementById('fname').value;
+    var lastName = document.getElementById('lname').value;
     var email = document.getElementById('email').value;
     var location = document.getElementById('location').value;
     var department = document.getElementById('department').value;
     var role = document.getElementById('role').value;
     var empno = document.getElementById('empno').value;
     var status = "Active";
-    var joindt = document.getElementById('joindt').value;
-    var dob = document.getElementById("dob").value;
+    var joinDate = document.getElementById('joindt').value;
+    var dateOfBirth = document.getElementById("dob").value;
     var phone = document.getElementById("phone").value;
     var image = document.getElementById("profileImage").src;
     var manager = document.querySelector(".managerName").value;
@@ -142,31 +141,19 @@ function addEmployee() {
             return employee.empno === emp;
         });
         employees.splice(index, 1);
-        employees.push({ fname: fname, lname: lname, email: email, location: location, department: department, role: role, empno: empno, status: status, joindt: joindt, dob: dob, phone: phone, image: image, manager: manager, project: project });
-        localStorage.setItem('employees', JSON.stringify(employees));
-        localStorage.removeItem('editEmployeeData');
+        employees.push({ firstName: firstName, lastName: lastName, email: email, location: location, department: department, role: role, empno: empno, status: status, joinDate: joinDate, dateOfBirth: dateOfBirth, phone: phone, image: image, manager: manager, project: project });
+        localStorage.setItem('employees', JSON.stringify(employees));        refresh();
     }
     else {
-        employees.push({ fname: fname, lname: lname, email: email, location: location, department: department, role: role, empno: empno, status: status, joindt: joindt, dob: dob, phone: phone, image: image, manager: manager, project: project });
-        localStorage.setItem('employees', JSON.stringify(employees));
-    }
+        employees.push({ firstName: firstName, lastName: lastName, email: email, location: location, department: department, role: role, empno: empno, status: status, joinDate: joinDate, dateOfBirth: dateOfBirth, phone: phone, image: image, manager: manager, project: project });
+        localStorage.setItem('employees', JSON.stringify(employees));    }
 
-    var alertBox = document.getElementById('alertBox');
-    alertBox.style.display = 'block';
+    var confirmation = document.getElementById('alertBox'); //confirmation
+    confirmation.style.display = 'block';
 
     setTimeout(function () {
         window.location.href = 'employees.html';
     }, 1000);
-}
-// Ends here
-
-
-
-
-// Clears edit details from page when navigated to another page
-function refresh() {
-    var editEmployeeData = JSON.parse(localStorage.getItem('editEmployeeData'));
-    localStorage.removeItem('editEmployeeData');
 }
 // Ends here
 
@@ -179,14 +166,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (editEmployeeData) {
         document.getElementById('update-btn').innerHTML = "Update Employee";
         document.getElementById('empno').value = editEmployeeData.empno;
-        document.getElementById('fname').value = editEmployeeData.fname;
-        document.getElementById('lname').value = editEmployeeData.lname;
+        document.getElementById('fname').value = editEmployeeData.firstName;
+        document.getElementById('lname').value = editEmployeeData.lastName;
         document.getElementById('email').value = editEmployeeData.email;
-        document.getElementById('joindt').value = editEmployeeData.joindt;
+        document.getElementById('joindt').value = editEmployeeData.joinDate;
         document.getElementById('department').value = editEmployeeData.department;
         document.getElementById('location').value = editEmployeeData.location;
         document.getElementById('role').value = editEmployeeData.role;
-        document.getElementById('dob').value = editEmployeeData.dob;
+        document.getElementById('dob').value = editEmployeeData.dateOfBirth;
         document.getElementById('phone').value = editEmployeeData.phone;
         document.getElementById('profileImage').src = editEmployeeData.profile;
         document.querySelector(".managerName").value = editEmployeeData.managerName;
@@ -195,8 +182,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-window.addEventListener("unload", function (event) {
-    var editEmployeeData = JSON.parse(localStorage.getItem('editEmployeeData'));
+
+// Clears edit details from page when navigated to another page
+function refresh() {
     localStorage.removeItem('editEmployeeData');
-});
+}
 // Ends here
+
+
+window.addEventListener("unload", function (event) {
+    refresh();
+});
