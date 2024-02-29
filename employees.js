@@ -32,15 +32,15 @@ function addEmployees(employees) {
         var name = addEmpRow.insertCell(1);
         name.classList.add('nameCell');
         var location = addEmpRow.insertCell(2);
-        var department = addEmpRow.insertCell(3); // department
+        var department = addEmpRow.insertCell(3);
         var role = addEmpRow.insertCell(4);
         var empno = addEmpRow.insertCell(5);
         var empStatus = addEmpRow.insertCell(6);
         var joinDate = addEmpRow.insertCell(7);
-        var actionsMenu = addEmpRow.insertCell(8); //menu
+        var actionsMenu = addEmpRow.insertCell(8);
         actionsMenu.id = "ellipsisid";
 
-        var selectEmployee = document.createElement('input'); //selectEmployee
+        var selectEmployee = document.createElement('input');
         selectEmployee.type = 'checkbox';
         rowCheckBox.appendChild(selectEmployee);
         name.innerHTML = `
@@ -157,9 +157,9 @@ document.body.addEventListener('click', function (event) {
 });
 
 function toggleDropdown(selectBox) {
-    var dropdownContent = selectBox.nextElementSibling; //data
+    var dropdownContent = selectBox.nextElementSibling; 
     var multiselectDropdownsContent = document.querySelectorAll('.multiselect-dropdown-content');
-    multiselectDropdownsContent.forEach(function (dropdownValue) { //value
+    multiselectDropdownsContent.forEach(function (dropdownValue) {
         if (dropdownValue !== dropdownContent) {
             dropdownValue.style.display = 'none';
         }
@@ -218,7 +218,7 @@ var startsWithLetter;
 var statusMatch = [];
 var locationMatch = [];
 var departmentMatch = [];
-var filterButtonText = ""; // change this
+var filterButtonText = ""; 
 function displayresult() {
     let results = employees.filter(ele => {
         let name = ele.firstName.toUpperCase();
@@ -288,7 +288,7 @@ function displayTable() {
     document.getElementById('employeeList').innerHTML = "";
     addEmployees(employees);
 
-    let filterButtonsColor = document.querySelectorAll(".letter-btn");//change bg
+    let filterButtonsColor = document.querySelectorAll(".letter-btn");
     filterButtonsColor.forEach(function (letterButton) {
         letterButton.style.backgroundColor = "";
         letterButton.style.color = "black";
