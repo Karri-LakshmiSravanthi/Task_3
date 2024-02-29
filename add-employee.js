@@ -40,6 +40,10 @@ function validateForm() {
     var joinDate = document.getElementById('joindt').value;
     var phone = document.getElementById('phone').value;
     var hasError = false; // Variable to track if any error occurred
+    var empnoPattern = /^[a-zA-Z0-9]+$/;
+    var namePattern = /^[a-zA-Z ]+$/;
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2})?$/;
+    var phonePattern = /^\d{10}$/;
 
     // Clear previous error messages
     document.querySelectorAll('.error-message').forEach(function (element) {
@@ -51,7 +55,6 @@ function validateForm() {
         document.getElementById('empno-error').innerText = 'Please enter Employee Number';
         hasError = true;
     } else {
-        var empnoPattern = /^[a-zA-Z0-9]+$/;
         if (!empnoPattern.test(empno)) {
             document.getElementById('empno-error').innerText = 'Employee Number must contain only letters and numbers';
             hasError = true;
@@ -62,8 +65,8 @@ function validateForm() {
         document.getElementById('fname-error').innerText = 'Please enter First Name';
         hasError = true;
     } else {
-        var fnamePattern = /^[a-zA-Z ]+$/;
-        if (!fnamePattern.test(firstName)) {
+        
+        if (!namePattern.test(firstName)) {
             document.getElementById('fname-error').innerText = 'First Name must contain only letters and spaces';
             hasError = true;
         }
@@ -73,8 +76,7 @@ function validateForm() {
         document.getElementById('lname-error').innerText = 'Please enter Last Name';
         hasError = true;
     } else {
-        var lnamePattern = /^[a-zA-Z ]+$/;
-        if (!lnamePattern.test(lastName)) {
+        if (!namePattern.test(lastName)) {
             document.getElementById('lname-error').innerText = 'Last Name must contain only letters and spaces';
             hasError = true;
         }
@@ -84,7 +86,6 @@ function validateForm() {
         document.getElementById('email-error').innerText = 'Please enter Email';
         hasError = true;
     } else {
-        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2})?$/;
         if (!emailPattern.test(email)) {
             document.getElementById('email-error').innerText = 'Email must contain only letters, numbers, @, .com';
             hasError = true;
@@ -96,8 +97,6 @@ function validateForm() {
         hasError = true;
     }
 
-
-    var phonePattern = /^\d{10}$/;
     if (phone && !phonePattern.test(phone)) {
         document.getElementById('phone-error').innerText = 'Phone Number must contain only digits of length 10';
         hasError = true;
@@ -142,13 +141,14 @@ function addEmployee() {
         });
         employees.splice(index, 1);
         employees.push({ firstName: firstName, lastName: lastName, email: email, location: location, department: department, role: role, empno: empno, status: status, joinDate: joinDate, dateOfBirth: dateOfBirth, phone: phone, image: image, manager: manager, project: project });
-        localStorage.setItem('employees', JSON.stringify(employees));        refresh();
+        localStorage.setItem('employees', JSON.stringify(employees));       
+        refresh();
     }
     else {
         employees.push({ firstName: firstName, lastName: lastName, email: email, location: location, department: department, role: role, empno: empno, status: status, joinDate: joinDate, dateOfBirth: dateOfBirth, phone: phone, image: image, manager: manager, project: project });
         localStorage.setItem('employees', JSON.stringify(employees));    }
 
-    var confirmation = document.getElementById('alertBox'); //confirmation
+    var confirmation = document.getElementById('alertBox');
     confirmation.style.display = 'block';
 
     setTimeout(function () {

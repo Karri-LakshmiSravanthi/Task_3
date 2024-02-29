@@ -1,6 +1,6 @@
 function searchFunction() {
     var currentDropdown = null; // Variable to keep track of the currently open dropdown
-    var searchContainers = document.querySelectorAll('.sec');
+    var searchContainers = document.querySelectorAll('.searchDropdown');
 
     searchContainers.forEach(function (container) {
         var searchField = container.querySelector('.managerName, .projectName');
