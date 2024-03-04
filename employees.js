@@ -236,8 +236,10 @@ function displayresult() {
     }
     else {
         document.getElementById('employeeList').innerHTML = "";
-        var filterImg = document.getElementById('filter-img');
-        filterImg.style.color = "red";
+        if(filterButtonText!==""){
+            var filterImg = document.getElementById('filter-img');
+            filterImg.style.color = "red";
+        }
         addEmployees(results);
         var tableCheckboxes = document.querySelectorAll('.table-wrapper input[type="checkbox"]');
         tableCheckboxes.forEach(function (checkbox) {
